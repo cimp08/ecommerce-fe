@@ -1,0 +1,136 @@
+.footer__newsletter {
+    padding: 2rem;
+    color: #fff;
+    background-color: #828282;
+}
+
+.footer__newsletter-container {
+    width: var(--container-width-lg);
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.footer__newsletter-container p {
+    font-size: 1.8rem;
+}
+
+.footer__newsletter-container input {
+    font-size: 1.6rem;
+    width: 26.4rem;
+    height: 4rem;
+    border-radius: 2.5rem;
+    padding-left: 2.6rem;
+}
+
+.input-container {
+    position: relative;
+    display: inline-block;
+}
+
+.input-container img {
+    position: absolute;
+    top: 1rem;
+    right: 1.9rem;
+    width: 2rem;
+    height: 2rem;
+}
+
+.footer__links {
+    width: var(--container-width-lg);
+    margin: auto;
+    display: flex;
+    gap: 10rem;
+    padding: 2rem;
+}
+
+.footer__links-link {
+    color: #333333;
+    padding-bottom: 2px;
+}
+
+.footer__links-link:hover {
+    border-bottom: 1px solid #333333;
+}
+
+.footer__socials {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #333333;
+    color: #fff;
+}
+
+.footer__socials-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 300;
+    padding: 1.5rem 0;
+}
+
+.footer__socials-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer__socials-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.footer__socials-logo img,
+.footer__socials-icons img {
+    width: 3rem;
+    height: 3rem;
+}
+
+.footer__socials-logo span {
+    font-weight: 600;
+}
+
+/* ------ MEDIA QUERIES TABLETS ------ */
+
+@media screen and (max-width: 1024px) {
+    .footer__newsletter-container {
+        width: var(--container-width-sm);
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .footer__links {
+        width: var(--container-width-sm);
+        margin: 0 auto;
+        display: flex;
+        gap: 2.3rem;
+        padding: 2rem;
+    }
+
+    .footer__socials-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 1.5rem;
+        justify-content: space-between;
+        padding: 1.5rem 0;
+    }
+}
+
+/* ------ MEDIA QUERIES MOBILES ------ */
+
+@media screen and (max-width: 600px) {
+    .footer__links {
+        width: var(--container-width-sm);
+        margin: 0 auto;
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem;
+    }
+
+    .footer__newsletter-container {
+        width: var(--container-width-xs);
+        flex-direction: column;
+        gap: 2rem;
+    }
+}
