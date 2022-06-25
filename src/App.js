@@ -1,12 +1,17 @@
 import './App.css'
 import React from 'react'
+import Header from './components/header/Header'
+import Footer from './components/footer/Footer'
 
 // eslint-disable-next-line react/function-component-definition
 const App = () => {
     return (
         <>
-            <h1>Välkommen till Glasskydd.se</h1>
-            <p>test</p>
+            <main>
+                <Header />
+                <h1>MAIN</h1>
+            </main>
+            <Footer />
         </>
     )
 }
