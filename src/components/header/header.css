@@ -1,0 +1,95 @@
+nav {
+    width: var(--container-width-sm);
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar__logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.navbar__logo img {
+    width: 3rem;
+    height: 3rem;
+}
+
+.navbar__logo span {
+    font-weight: 600;
+}
+
+.navbar__search {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.navbar__search img {
+    width: 2.3rem;
+    height: 2.3rem;
+}
+
+.navbar__search-bar {
+    border-radius: 50%;
+    width: 4rem;
+    cursor: pointer;
+    height: 4rem;
+    background-color: #f2f2f2;
+    outline: none;
+    background-image: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-search-strong-256.png');
+    background-size: 2.3rem;
+    background-position: center;
+    font-size: 1.6rem;
+    color: #333333;
+    background-repeat: no-repeat;
+    transition-property: width, border-radius, background-position, padding-left /*, transform*/;
+    transition-duration: 0.5s;
+}
+
+input:focus {
+    width: 25rem;
+    border-radius: 1rem;
+    cursor: text;
+    padding-left: 40px;
+    padding-right: 20px;
+    background-position: 5px;
+}
+
+/* ------ MEDIA QUERIES MOBILES ------ */
+
+@media screen and (max-width: 600px) {
+    nav {
+        padding: 1rem 0;
+    }
+    .navbar {
+        display: flex;
+        flex-direction: column;
+        gap: 1.3rem;
+        align-items: center;
+    }
+
+    .navbar__search img {
+        width: 2.2rem;
+        height: 2.2rem;
+    }
+    .navbar__search-bar {
+        width: 30px;
+        height: 30px;
+        background-color: #f2f2f2;
+        outline: none;
+        background-image: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-search-strong-256.png');
+        background-size: 2.2rem;
+        background-position: center;
+        color: #333333;
+        background-repeat: no-repeat;
+        transition-property: width, border-radius, background-position, padding-left /*, transform*/;
+        transition-duration: 0.5s;
+    }
+}
