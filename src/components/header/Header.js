@@ -10,16 +10,21 @@ const Header = () => {
         <header>
             <nav>
                 <div className="navbar">
-                    <div className="navbar__logo">
+                    <a className="navbar__logo" href="/">
                         <img src={LOGO} alt="white logotype" />
                         <h2>
                             glas<span>skydd</span>.se
                         </h2>
-                    </div>
+                    </a>
+
                     <div className="navbar__search">
                         <input type="search" className="navbar__search-bar" />
-                        <img src={SHOPPINGCART} alt="shoppingcart icon" />
-                        <img src={USER} alt="user icon" />
+                        <a href="/cart">
+                            <img src={SHOPPINGCART} alt="shoppingcart icon" />
+                        </a>
+                        <a href="/signin">
+                            <img src={USER} alt="user icon" />
+                        </a>
                     </div>
                 </div>
             </nav>
