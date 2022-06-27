@@ -46,3 +46,20 @@
     font-weight: 300;
     color: #fff;
 }
+
+/* ------ MEDIA QUERIES MOBILES ------ */
+
+@media screen and (max-width: 732px) {
+    .card__content-img {
+        width: 14.2rem;
+        height: 22.5rem;
+    }
+    .card__content-img img {
+        height: 11.6rem;
+        width: auto;
+    }
+    .card__content-model,
+    .card__content-price {
+        font-size: 1.6rem;
+    }
+}
