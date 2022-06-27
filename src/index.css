@@ -13,6 +13,7 @@
 :root {
     --color-black: #000;
 
+    --container-width-xl: 65%;
     --container-width-lg: 75%;
     --container-width-md: 86%;
     --container-width-sm: 90%;
