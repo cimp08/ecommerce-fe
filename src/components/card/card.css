@@ -1,0 +1,48 @@
+.card__content {
+    font-family: 'Barlow', sans-serif;
+    text-transform: uppercase;
+}
+
+.card__content-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    width: 25.6rem;
+    height: 32rem;
+    border-radius: 1.5rem;
+}
+
+.card__content-img img {
+    height: 20rem;
+    width: auto;
+}
+
+.card__content-brand {
+    margin: 1rem 0 1rem 1rem;
+    font-weight: 400;
+    color: #828282;
+}
+
+.card__content-model,
+.card__content-price {
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: #333333;
+    margin-left: 1rem;
+}
+
+.card__content-price {
+    margin-bottom: 1.5rem;
+}
+
+.card__content a {
+    margin-left: 1rem;
+    padding: 0.8rem 2.5rem;
+    background: #333333;
+    border-radius: 1.5rem;
+    font-family: 'Monserrat', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 300;
+    color: #fff;
+}
