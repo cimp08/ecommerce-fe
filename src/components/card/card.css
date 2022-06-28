@@ -17,8 +17,7 @@
     width: auto;
 }
 
-.card__content-brand,
-.card__content-rating {
+.card__content-brand {
     margin: 1rem 0 1rem 1rem;
     font-weight: 400;
     color: #828282;
@@ -31,10 +30,6 @@
     color: #333333;
     margin-left: 1rem;
     text-transform: uppercase;
-}
-
-.card__content-rating{
-    margin-bottom: 1.5rem;
 }
 
 .card__content a {
