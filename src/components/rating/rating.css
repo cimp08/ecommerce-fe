@@ -1,0 +1,11 @@
+.rating {
+    display: flex;
+    align-items: center;
+    margin: 2rem 0 2rem 1rem;
+}
+
+.rating p{
+    margin-left: 1rem;
+    font-weight: 400;
+    color: #828282;
+}
