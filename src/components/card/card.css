@@ -1,6 +1,5 @@
 .card__content {
     font-family: 'Barlow', sans-serif;
-    text-transform: uppercase;
 }
 
 .card__content-img {
@@ -18,7 +17,8 @@
     width: auto;
 }
 
-.card__content-brand {
+.card__content-brand,
+.card__content-rating {
     margin: 1rem 0 1rem 1rem;
     font-weight: 400;
     color: #828282;
@@ -30,9 +30,10 @@
     font-weight: 500;
     color: #333333;
     margin-left: 1rem;
+    text-transform: uppercase;
 }
 
-.card__content-price {
+.card__content-rating{
     margin-bottom: 1.5rem;
 }
 
@@ -45,6 +46,7 @@
     font-size: 1.6rem;
     font-weight: 300;
     color: #fff;
+    text-transform: uppercase;
 }
 
 /* ------ MEDIA QUERIES MOBILES ------ */
