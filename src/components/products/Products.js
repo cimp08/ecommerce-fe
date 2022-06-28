@@ -1,5 +1,7 @@
+/* eslint-disable no-underscore-dangle */
 import React from 'react'
 import './products.css'
+import products from '../../products'
 import Card from '../card/Card'
 
 // eslint-disable-next-line react/function-component-definition
@@ -31,14 +33,9 @@ const Products = () => {
                 <h3>Apple</h3>
 
                 <div className="products__section-products">
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
-                    <Card />
+                    {products.map((product) => (
+                        <Card key={product._id} product={product} />
+                    ))}
                 </div>
             </div>
         </section>
