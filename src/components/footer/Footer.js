@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './footer.css'
 import EMAIL from '../../assets/icons/email.png'
 import LOGO from '../../assets/icons/shield-white.png'
@@ -27,19 +28,19 @@ const Footer = () => {
                     <h3>PRODUKTER</h3>
                     <ul>
                         <li>
-                            <a href="#test" className="footer__links-link">
+                            <Link to="/" className="footer__links-link">
                                 Nyheter
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#test" className="footer__links-link">
+                            <Link to="/" className="footer__links-link">
                                 Toppsäljare
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#test" className="footer__links-link">
+                            <Link to="/" className="footer__links-link">
                                 Rea
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>
@@ -47,24 +48,24 @@ const Footer = () => {
                     <h3>HJÄLP</h3>
                     <ul>
                         <li>
-                            <a href="#test" className="footer__links-link">
+                            <Link to="/" className="footer__links-link">
                                 Order
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#test" className="footer__links-link">
+                            <Link to="/" className="footer__links-link">
                                 Frakt
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#test" className="footer__links-link">
+                            <Link to="/" className="footer__links-link">
                                 Returer & Byten
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#test" className="footer__links-link">
+                            <Link to="/" className="footer__links-link">
                                 Kontakta Oss
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>
@@ -72,31 +73,31 @@ const Footer = () => {
                     <h3>OM OSS</h3>
                     <ul>
                         <li>
-                            <a href="#test" className="footer__links-link">
+                            <Link to="/" className="footer__links-link">
                                 Om glasskydd.se
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#test" className="footer__links-link">
+                            <Link to="/" className="footer__links-link">
                                 Cookiepolicy
-                            </a>
+                            </Link>
                         </li>
                         <li>
-                            <a href="#test" className="footer__links-link">
+                            <Link to="/" className="footer__links-link">
                                 Hållbarhet
-                            </a>
+                            </Link>
                         </li>
                     </ul>
                 </div>
             </div>
             <div className="footer__socials">
                 <div className="container footer__socials-container">
-                    <div className="footer__socials-logo">
+                    <Link to="/" className="footer__socials-logo">
                         <img src={LOGO} alt="white logotype" />
                         <h2>
                             glas<span>skydd</span>.se
                         </h2>
-                    </div>
+                    </Link>
                     <div className="footer__socials-copyright">
                         <p>© 2022 Glasskydd, Inc. All rights reserved.</p>
                     </div>

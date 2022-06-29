@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './card.css'
 import Rating from '../rating/Rating'
 
@@ -14,7 +15,7 @@ const Card = ({ product }) => {
             <p className="card__content-model">{product.name}</p>
             <p className="card__content-price">Pris {product.price}:-</p>
             <Rating value={product.rating} text={`${product.numReviews} recensioner`} />
-            <a href={`/products/${product._id}`}>info</a>
+            <Link to={`/product/${product._id}`}>info</Link>
         </div>
     )
 }

@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './header.css'
 import LOGO from '../../assets/icons/shield.png'
 import SHOPPINGCART from '../../assets/icons/shopping-bag.png'
@@ -10,21 +11,21 @@ const Header = () => {
         <header>
             <nav>
                 <div className="navbar">
-                    <a className="navbar__logo" href="/">
+                    <Link className="navbar__logo" to="/">
                         <img src={LOGO} alt="white logotype" />
                         <h2>
                             glas<span>skydd</span>.se
                         </h2>
-                    </a>
+                    </Link>
 
                     <div className="navbar__search">
                         <input type="search" className="navbar__search-bar" />
-                        <a href="/cart">
+                        <Link to="/cart">
                             <img src={SHOPPINGCART} alt="shoppingcart icon" />
-                        </a>
-                        <a href="/signin">
+                        </Link>
+                        <Link to="/login">
                             <img src={USER} alt="user icon" />
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </nav>

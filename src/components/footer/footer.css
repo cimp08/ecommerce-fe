@@ -73,6 +73,7 @@
 .footer__socials-logo {
     display: flex;
     align-items: center;
+    color: #fff;
     gap: 0.5rem;
 }
 
