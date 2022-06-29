@@ -1,5 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './products.css'
 import products from '../../products'
 import Card from '../card/Card'
@@ -12,21 +13,19 @@ const Products = () => {
                 <div className="products__section-bar">
                     <ul className="products__section-brands">
                         <li>
-                            <a className="active" href="/">
-                                Apple
-                            </a>
+                            <Link to="/">Apple</Link>
                         </li>
                         <li>
-                            <a href="/">Samsung</a>
+                            <Link to="/">Samsung</Link>
                         </li>
                         <li>
-                            <a href="/">Sony</a>
+                            <Link to="/">Sony</Link>
                         </li>
                         <li>
-                            <a href="/">Huwaei</a>
+                            <Link to="/">Huwaei</Link>
                         </li>
                         <li>
-                            <a href="/">Xiaomi</a>
+                            <Link to="/">Xiaomi</Link>
                         </li>
                     </ul>
                 </div>

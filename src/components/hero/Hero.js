@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './hero.css'
 import HERO from '../../assets/img/hero.png'
 
@@ -30,7 +31,7 @@ const Hero = () => {
                             <span>pris</span> 69:-
                         </li>
                         <li>
-                            <a href="/">lägg till</a>
+                            <Link to="/">lägg till</Link>
                         </li>
                     </ul>
                 </div>
