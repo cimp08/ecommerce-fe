@@ -1,12 +1,22 @@
 /* eslint-disable no-underscore-dangle */
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './products.css'
-import products from '../../products'
+import axios from 'axios'
 import Card from '../card/Card'
 
 // eslint-disable-next-line react/function-component-definition
 const Products = () => {
+    const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        const fetchProducts = async () => {
+            const { data } = await axios.get('/api/products')
+            setProducts(data)
+        }
+        fetchProducts()
+    }, [])
+
     return (
         <section className="products__section">
             <div className="products__section-container">
