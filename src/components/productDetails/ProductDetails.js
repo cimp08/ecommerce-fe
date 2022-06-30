@@ -1,19 +1,28 @@
 /* eslint-disable react/button-has-type */
 /* eslint-disable no-underscore-dangle */
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link, useParams } from 'react-router-dom'
 import { TbTruckDelivery } from 'react-icons/tb'
 import { BsArrowLeft } from 'react-icons/bs'
+import axios from 'axios'
 import Rating from '../rating/Rating'
-import products from '../../products'
 import './productDetails.css'
 
 // eslint-disable-next-line react/function-component-definition
 const ProductDetails = () => {
-    const [showMore, setShowMore] = useState(false)
     // Get the id from the url
     const { id } = useParams()
-    const product = products.find((p) => p._id === id)
+    const [product, setProduct] = useState({})
+    const [showMore, setShowMore] = useState(false)
+
+    useEffect(() => {
+        const fetchProduct = async () => {
+            const { data } = await axios.get(`/api/products/${id}`)
+            setProduct(data)
+        }
+        fetchProduct()
+    }, [id])
+
     return (
         <section className="product__section">
             <div className="product__container">
