@@ -95,7 +95,7 @@ Created by:
 
 ## General Information
 
-- This repository interact with the backend part of DoggyMatch-App. [Backend](https://github.com/cimp08/ecommerce-be)
+- This repository interact with the backend part of Glasskydd.se. [Backend](https://github.com/cimp08/ecommerce-be)
 
 <!-- ## License
 
