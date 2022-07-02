@@ -21,7 +21,9 @@
     justify-content: space-between;
 }
 
-.products__section-bar a {
+
+
+.brand-btn {
     color: #333333;
     padding: 0.8rem 2.5rem;
     font-size: 1.8rem;
@@ -30,7 +32,18 @@
     text-transform: uppercase;
 }
 
-.products__section-bar a:hover {
+.brand-btn:hover{
+    padding: 0.8rem 2.5rem;
+    background: #333333;
+    border-radius: 1.5rem;
+    color: #fff;
+}
+
+.active {
+    font-size: 1.8rem;
+    font-weight: 700;
+    font-family: 'Barlow', sans-serif;
+    text-transform: uppercase;
     padding: 0.8rem 2.5rem;
     background: #333333;
     border-radius: 1.5rem;
