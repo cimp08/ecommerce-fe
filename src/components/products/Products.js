@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import './products.css'
 import Card from '../card/Card'
+import Message from '../message/Message'
+import Loader from '../loader/Loader'
 import { listProducts } from '../../actions/productActions'
 
 // eslint-disable-next-line react/function-component-definition
@@ -73,9 +75,9 @@ const Products = () => {
                 </div>
                 <h3>{brand}</h3>
                 {loading ? (
-                    <h2>Loading...</h2>
+                    <Loader />
                 ) : error ? (
-                    <h3>{error}</h3>
+                    <Message variant="danger">{error}</Message>
                 ) : (
                     <div className="products__section-products">
                         {products
