@@ -1,9 +1,10 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable react/button-has-type */
 /* eslint-disable no-underscore-dangle */
-import React, { /* useState, */ useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import Form from 'react-bootstrap/Form'
 import { TbTruckDelivery } from 'react-icons/tb'
 import { BsArrowLeft } from 'react-icons/bs'
 import { listProductDetails } from '../../actions/productActions'
@@ -14,16 +15,23 @@ import './productDetails.css'
 
 // eslint-disable-next-line react/function-component-definition
 const ProductDetails = () => {
+    const [qty, setQty] = useState(0)
+
     const dispatch = useDispatch()
     const productDetails = useSelector((state) => state.productDetails)
     const { loading, error, product } = productDetails
     // Get the id from the url
     const { id } = useParams()
+    const navigate = useNavigate()
     /* const [showMore, setShowMore] = useState(false) */
 
     useEffect(() => {
         dispatch(listProductDetails(id))
     }, [dispatch, id])
+
+    const addToCartHandler = () => {
+        navigate(`/cart/${id}?qty=${qty}`)
+    }
 
     return (
         <section className="product__section">
@@ -51,7 +59,24 @@ const ProductDetails = () => {
                                     /> */}
                                 </div>
                                 <h3 className="name">Glasskydd 9HD- {product.name}</h3>
-                                <button className="btn" disabled={product.countInStock === 0}>
+                                {product.countInStock > 0 && (
+                                    <Form.Select
+                                        size="lg"
+                                        value={qty}
+                                        onChange={(e) => setQty(e.target.value)}
+                                    >
+                                        {[...Array(product.countInStock).keys()].map((x) => (
+                                            <option key={x + 1} value={x + 1}>
+                                                {x + 1}
+                                            </option>
+                                        ))}
+                                    </Form.Select>
+                                )}
+                                <button
+                                    className="btn"
+                                    onClick={addToCartHandler}
+                                    disabled={product.countInStock === 0}
+                                >
                                     Köp
                                 </button>
                                 <div className="stock">
