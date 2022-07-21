@@ -53,6 +53,7 @@
 }
 
 .product__item-info h3 {
+    margin-bottom: 4rem;
     font-size: 2.4rem;
     font-weight: 700;
 }

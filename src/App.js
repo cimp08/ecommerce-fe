@@ -5,6 +5,7 @@ import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import HomePage from './pages/HomePage'
 import ProductPage from './pages/ProductPage'
+import CartPage from './pages/CartPage'
 
 // eslint-disable-next-line react/function-component-definition
 const App = () => {
@@ -15,6 +16,8 @@ const App = () => {
                 <Routes>
                     <Route path="/" element={<HomePage />} exact />
                     <Route path="/product/:id" element={<ProductPage />} />
+                    <Route path="/cart/:id" element={<CartPage />} />
+                    <Route path="/cart" element={<CartPage />} />
                 </Routes>
             </main>
             <Footer />
