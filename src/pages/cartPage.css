@@ -1,0 +1,32 @@
+.cart__container {
+    width: var(--container-width-md);
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.cart__container h1 {
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 2.4rem;
+    padding: 2rem 0;
+}
+
+.cart__container h2 {
+    text-transform: uppercase;
+    font-size: 2rem;
+    padding: 1rem 0;
+}
+
+.btn-block {
+    margin: 2rem 0;
+    width: 100%;
+    padding: 1.3rem 0;
+    background: #333333;
+    border-radius: 1.5rem;
+    font-family: 'Monserrat', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #fff;
+    text-transform: uppercase;
+    cursor: pointer;
+}
