@@ -16,6 +16,10 @@ nav {
     gap: 0.5rem;
 }
 
+.navbar__logo:hover {
+    color: #000;
+}
+
 .navbar__logo img {
     width: 3rem;
     height: 3rem;
