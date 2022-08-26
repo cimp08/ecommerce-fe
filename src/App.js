@@ -6,6 +6,7 @@ import Footer from './components/footer/Footer'
 import HomePage from './pages/HomePage'
 import ProductPage from './pages/ProductPage'
 import CartPage from './pages/CartPage'
+import LoginPage from './pages/LoginPage'
 
 // eslint-disable-next-line react/function-component-definition
 const App = () => {
@@ -14,10 +15,11 @@ const App = () => {
             <Header />
             <main>
                 <Routes>
-                    <Route path="/" element={<HomePage />} exact />
+                    <Route path="/login" element={<LoginPage />} />
                     <Route path="/product/:id" element={<ProductPage />} />
                     <Route path="/cart/:id" element={<CartPage />} />
                     <Route path="/cart" element={<CartPage />} />
+                    <Route path="/" element={<HomePage />} exact />
                 </Routes>
             </main>
             <Footer />
