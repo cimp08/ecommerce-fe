@@ -58,7 +58,7 @@ nav {
     transition-duration: 0.5s;
 }
 
-input:focus {
+nav input:focus {
     width: 25rem;
     border-radius: 1rem;
     cursor: text;
