@@ -35,7 +35,7 @@ const LoginPage = () => {
     return (
         <div className="section-login">
             <div className="center">
-                <h2>Logga in</h2>
+                <h2>Hej! Logga in</h2>
                 {error && <Message variant="danger">{error}</Message>}
                 {loading && <Loader />}
                 <form onSubmit={submitHandler}>
@@ -61,12 +61,12 @@ const LoginPage = () => {
                         <span></span>
                         <label>Lösenord</label>
                     </div>
-                    <button type="submit">Skicka</button>
+                    <button type="submit">Logga in</button>
                 </form>
                 <p>
                     Ny kund?{' '}
                     <Link to={redirect ? `/register?redirect=${redirect}` : '/register'}>
-                        Register
+                        Registera dig här!
                     </Link>
                 </p>
             </div>
