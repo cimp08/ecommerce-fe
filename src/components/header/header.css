@@ -67,6 +67,20 @@ nav input:focus {
     background-position: 5px;
 }
 
+.nav-link{
+    color: #333333;
+}
+
+
+.dropdown-menu {
+    font-size: 1.6rem;
+}
+
+.dropdown-item.active,
+.dropdown-item:active {
+    background-color: #333333;
+}
+
 /* ------ MEDIA QUERIES MOBILES ------ */
 
 @media screen and (max-width: 600px) {
