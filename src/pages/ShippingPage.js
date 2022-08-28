@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { saveShippingAddress } from '../actions/cartActions'
+import CheckoutSteps from '../components/checkoutSteps/CheckoutSteps'
 import './shippingPage.css'
 
 // eslint-disable-next-line react/function-component-definition
@@ -28,6 +29,7 @@ const ShippingPage = () => {
     return (
         <div className="section-shipping">
             <div className="center">
+                <CheckoutSteps step1 step2 />
                 <h2>Shipping</h2>
                 <form onSubmit={submitHandler}>
                     <div className="txt_field" controlId="address">
