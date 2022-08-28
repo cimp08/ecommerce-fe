@@ -2,7 +2,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import React, { useEffect } from 'react'
-import { Link, useParams, useSearchParams } from 'react-router-dom'
+import { Link, useParams, useSearchParams, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
 import Message from '../components/message/Message'
@@ -16,6 +16,7 @@ const CartPage = ({ location, history }) => {
     // eslint-disable-next-line prefer-destructuring
     const [searchParams] = useSearchParams()
     const qty = searchParams.get('qty')
+    const navigate = useNavigate()
 
     const dispatch = useDispatch()
 
@@ -34,7 +35,7 @@ const CartPage = ({ location, history }) => {
     }
 
     const checkoutHandler = () => {
-        /* history.push('/login?redirect=shipping') */
+        navigate('/login?redirect=shipping')
     }
 
     return (

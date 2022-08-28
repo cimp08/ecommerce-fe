@@ -92,7 +92,7 @@ const ProfilePage = () => {
                                 required
                             ></input>
                             <span></span>
-                            <label>Lösenord</label>
+                            <label>Ändra lösenord (frivilligt)</label>
                         </div>
                         <div className="txt_field" controlId="confirmPassword">
                             <input
