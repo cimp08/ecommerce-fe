@@ -10,7 +10,7 @@ import { addToCart, removeFromCart } from '../actions/cartActions'
 import './cartPage.css'
 
 // eslint-disable-next-line react/function-component-definition
-const CartPage = ({ location, history }) => {
+const CartPage = () => {
     // Get the id from the url
     const { id } = useParams()
     // eslint-disable-next-line prefer-destructuring
