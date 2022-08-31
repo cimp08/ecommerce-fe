@@ -30,8 +30,7 @@ const OrderPage = () => {
 
     useEffect(() => {
         dispatch(getOrderDetails(id))
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [dispatch, id])
 
     return loading ? (
         <Loader />
