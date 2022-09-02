@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-lonely-if */
 /* eslint-disable jsx-a11y/label-has-associated-control */
@@ -5,9 +6,14 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { Table, Button } from 'react-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap'
+import { IconContext } from 'react-icons'
+import { BsXLg } from 'react-icons/bs'
 import Message from '../components/message/Message'
 import Loader from '../components/loader/Loader'
 import { getUserDetails, updateUserProfile } from '../actions/userAction'
+import { listMyOrders } from '../actions/orderActions'
 import './profilePage.css'
 
 // eslint-disable-next-line react/function-component-definition
@@ -29,12 +35,17 @@ const ProfilePage = () => {
     const userUpdateProfile = useSelector((state) => state.userUpdateProfile)
     const { success } = userUpdateProfile
 
+    const orderMyList = useSelector((state) => state.orderMyList)
+    // eslint-disable-next-line no-unused-vars
+    const { loading: loadingOrders, error: errorOrders, orders } = orderMyList
+
     useEffect(() => {
         if (!userInfo) {
             navigate('/login')
         } else {
             if (!user.name) {
                 dispatch(getUserDetails('profile'))
+                dispatch(listMyOrders())
             } else {
                 setName(user.name)
                 setEmail(user.email)
@@ -55,7 +66,7 @@ const ProfilePage = () => {
         <div className="section-profile">
             <div className="flex">
                 <div className="center">
-                    <h2>Användar Profil</h2>
+                    <h2>Min Profil</h2>
                     {message && <Message variant="danger">{message}</Message>}
                     {error && <Message variant="danger">{error}</Message>}
                     {success && <Message variant="success">Konto uppdaterat</Message>}
@@ -92,7 +103,9 @@ const ProfilePage = () => {
                                 required
                             ></input>
                             <span></span>
-                            <label>Ändra lösenord (frivilligt)</label>
+                            <label>
+                                Nytt lösenord <small>*(frivilligt)</small>
+                            </label>
                         </div>
                         <div className="txt_field" controlId="confirmPassword">
                             <input
@@ -109,7 +122,69 @@ const ProfilePage = () => {
                     </form>
                 </div>
                 <div className="myorders-section">
-                    <h2>My orders</h2>
+                    <h2>Mina Ordrar</h2>
+                    {loadingOrders ? (
+                        <Loader />
+                    ) : errorOrders ? (
+                        <Message variant="danger">{errorOrders}</Message>
+                    ) : (
+                        <Table striped bordered hover responsive className="table-sm">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>DATE</th>
+                                    <th>TOTAL</th>
+                                    <th>PAID</th>
+                                    <th>DELIVERED</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {orders.map((order) => (
+                                    <tr key={order._id}>
+                                        <td>{order._id}</td>
+                                        <td>{order.createdAt.substring(0, 10)}</td>
+                                        <td>{order.totalPrice} kr</td>
+                                        <td>
+                                            {order.isPaid ? (
+                                                order.paidAt.substring(0, 10)
+                                            ) : (
+                                                <IconContext.Provider
+                                                    // eslint-disable-next-line react/jsx-no-constructed-context-values
+                                                    value={{
+                                                        color: 'red',
+                                                    }}
+                                                >
+                                                    <BsXLg />
+                                                </IconContext.Provider>
+                                            )}
+                                        </td>
+                                        <td>
+                                            {order.isDelived ? (
+                                                order.isDelived.substring(0, 10)
+                                            ) : (
+                                                <IconContext.Provider
+                                                    // eslint-disable-next-line react/jsx-no-constructed-context-values
+                                                    value={{
+                                                        color: 'red',
+                                                    }}
+                                                >
+                                                    <BsXLg />
+                                                </IconContext.Provider>
+                                            )}
+                                        </td>
+                                        <td>
+                                            <LinkContainer to={`/order/${order._id}`}>
+                                                <Button className="btn-lg" variant="light">
+                                                    Detaljer
+                                                </Button>
+                                            </LinkContainer>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </Table>
+                    )}
                 </div>
             </div>
         </div>
