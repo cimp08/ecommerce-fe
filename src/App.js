@@ -13,6 +13,8 @@ import ShippingPage from './pages/ShippingPage'
 import PaymentPage from './pages/PaymentPage'
 import PlaceOrderPage from './pages/PlaceOrderPage'
 import OrderPage from './pages/OrderPage'
+import UserListPage from './pages/UserListPage'
+import UserEditPage from './pages/UserEditPage'
 
 // eslint-disable-next-line react/function-component-definition
 const App = () => {
@@ -31,6 +33,8 @@ const App = () => {
                     <Route path="/product/:id" element={<ProductPage />} />
                     <Route path="/cart/:id" element={<CartPage />} />
                     <Route path="/cart" element={<CartPage />} />
+                    <Route path="/admin/userlist" element={<UserListPage />} />
+                    <Route path="/admin/user/:id/edit" element={<UserEditPage />} />
                     <Route path="/" element={<HomePage />} exact />
                 </Routes>
             </main>
