@@ -10,7 +10,7 @@ import { BsPlus } from 'react-icons/bs'
 import { FaTrash } from 'react-icons/fa'
 import Message from '../components/message/Message'
 import Loader from '../components/loader/Loader'
-import { listProducts } from '../actions/productActions'
+import { listProducts, deleteProduct } from '../actions/productActions'
 import './userListPage.css'
 
 // eslint-disable-next-line react/function-component-definition
@@ -21,6 +21,9 @@ const ProductListPage = () => {
     const productList = useSelector((state) => state.productList)
     const { loading, error, products } = productList
 
+    const productDelete = useSelector((state) => state.productDelete)
+    const { loading: loadingDelete, error: errorDelete, success: successDelete } = productDelete
+
     const userLogin = useSelector((state) => state.userLogin)
     const { userInfo } = userLogin
 
@@ -30,12 +33,12 @@ const ProductListPage = () => {
         } else {
             navigate('/login')
         }
-    }, [dispatch, navigate, userInfo])
+    }, [dispatch, navigate, userInfo, successDelete])
 
-    const deleteHandler = () => {
+    const deleteHandler = (id) => {
         // eslint-disable-next-line no-alert, no-undef
-        if (window.confirm('Ta bort användare?')) {
-            // Del prod
+        if (window.confirm('Ta bort produkt?')) {
+            dispatch(deleteProduct(id))
         }
     }
 
@@ -44,7 +47,7 @@ const ProductListPage = () => {
     }
 
     return (
-        <div className="container userlist__section">
+        <div className="container">
             <Row className="align-items-center">
                 <Col>
                     <h2>Products</h2>
@@ -55,6 +58,8 @@ const ProductListPage = () => {
                     </Button>
                 </Col>
             </Row>
+            {loadingDelete && <Loader />}
+            {errorDelete && <Message variant="danger">{errorDelete}</Message>}
             {loading ? (
                 <Loader />
             ) : error ? (
