@@ -4,12 +4,13 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/self-closing-comp */
 import React, { useState, useEffect } from 'react'
-import { Link, useParams } from 'react-router-dom'
+import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/message/Message'
 import Loader from '../components/loader/Loader'
-import { listProductDetails } from '../actions/productActions'
+import { listProductDetails, updateProduct } from '../actions/productActions'
 import './registerPage.css'
+import { PRODUCT_UPDATE_RESET } from '../constans/productConstans'
 
 // eslint-disable-next-line react/function-component-definition
 const ProductEditPage = () => {
@@ -22,28 +23,48 @@ const ProductEditPage = () => {
     const [description, setDescription] = useState('')
 
     const { id } = useParams()
+    const navigate = useNavigate()
     const dispatch = useDispatch()
 
     const productDetails = useSelector((state) => state.productDetails)
     const { loading, error, product } = productDetails
 
+    const productUpdate = useSelector((state) => state.productUpdate)
+    const { loading: loadingUpdate, error: errorUpdate, success: successUpdate } = productUpdate
+
     useEffect(() => {
-        if (!product.name || product._id !== id) {
-            dispatch(listProductDetails(id))
+        if (successUpdate) {
+            dispatch({ type: PRODUCT_UPDATE_RESET })
+            navigate('/admin/productlist')
         } else {
-            setName(product.name)
-            setPrice(product.price)
-            setImage(product.image)
-            setBrand(product.brand)
-            setCategory(product.category)
-            setCountInStock(product.countInStock)
-            setDescription(product.description)
+            if (!product.name || product._id !== id) {
+                dispatch(listProductDetails(id))
+            } else {
+                setName(product.name)
+                setPrice(product.price)
+                setImage(product.image)
+                setBrand(product.brand)
+                setCategory(product.category)
+                setCountInStock(product.countInStock)
+                setDescription(product.description)
+            }
         }
-    }, [dispatch, id, product])
+    }, [dispatch, id, navigate, product, successUpdate])
 
     const submitHandler = (e) => {
         e.preventDefault()
-        // UPDATE PRODUCT
+        dispatch(
+            updateProduct({
+                _id: id,
+                name,
+                price,
+                image,
+                brand,
+                category,
+                description,
+                countInStock,
+            })
+        )
     }
 
     return (
@@ -54,6 +75,8 @@ const ProductEditPage = () => {
             <div className="section-register">
                 <div className="center">
                     <h2>Editera Produkt</h2>
+                    {loadingUpdate && <Loader />}
+                    {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
                     {loading ? (
                         <Loader />
                     ) : error ? (
