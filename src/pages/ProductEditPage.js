@@ -4,6 +4,7 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/self-closing-comp */
 import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/message/Message'
@@ -21,6 +22,7 @@ const ProductEditPage = () => {
     const [category, setCategory] = useState('')
     const [countInStock, setCountInStock] = useState(0)
     const [description, setDescription] = useState('')
+    const [uploading, setUploading] = useState(false)
 
     const { id } = useParams()
     const navigate = useNavigate()
@@ -51,6 +53,31 @@ const ProductEditPage = () => {
         }
     }, [dispatch, id, navigate, product, successUpdate])
 
+    const uploadFileHandler = async (e) => {
+        const file = e.target.files[0]
+        // eslint-disable-next-line no-undef
+        const formData = new FormData()
+        formData.append('image', file)
+        setUploading(true)
+
+        try {
+            const config = {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+            }
+
+            const { data } = await axios.post('/api/upload', formData, config)
+            setImage(data)
+            setUploading(false)
+            // eslint-disable-next-line no-shadow
+        } catch (error) {
+            // eslint-disable-next-line no-console
+            console.error(error)
+            setUploading(false)
+        }
+    }
+
     const submitHandler = (e) => {
         e.preventDefault()
         dispatch(
@@ -68,104 +95,112 @@ const ProductEditPage = () => {
     }
 
     return (
-        <>
-            <Link to="/admin/productlist" className="btn btn-light my-3">
+        <div className="section-register">
+            <Link to="/admin/productlist" className="btn btn-light">
                 Tillbaka
             </Link>
-            <div className="section-register">
-                <div className="center">
-                    <h2>Editera Produkt</h2>
-                    {loadingUpdate && <Loader />}
-                    {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
-                    {loading ? (
-                        <Loader />
-                    ) : error ? (
-                        <Message variant="danger">{error}</Message>
-                    ) : (
-                        <form onSubmit={submitHandler}>
-                            <div className="txt_field" controlId="name">
-                                <input
-                                    id="name"
-                                    type="name"
-                                    value={name}
-                                    onChange={(e) => setName(e.target.value)}
-                                    required
-                                ></input>
-                                <span></span>
-                                <label>Modell</label>
-                            </div>
-                            <div className="txt_field" controlId="price">
-                                <input
-                                    id="price"
-                                    type="number"
-                                    value={price}
-                                    onChange={(e) => setPrice(e.target.value)}
-                                    required
-                                ></input>
-                                <span></span>
-                                <label>Pris (sek)</label>
-                            </div>
-                            <div className="txt_field" controlId="image">
-                                <input
-                                    id="image"
-                                    type="text"
-                                    value={image}
-                                    onChange={(e) => setImage(e.target.value)}
-                                    required
-                                ></input>
-                                <span></span>
-                                <label>Bild</label>
-                            </div>
-                            <div className="txt_field" controlId="brand">
-                                <input
-                                    id="brand"
-                                    type="text"
-                                    value={brand}
-                                    onChange={(e) => setBrand(e.target.value)}
-                                    required
-                                ></input>
-                                <span></span>
-                                <label>Märke</label>
-                            </div>
-                            <div className="txt_field" controlId="countInStock">
-                                <input
-                                    id="countInStock"
-                                    type="number"
-                                    value={countInStock}
-                                    onChange={(e) => setCountInStock(e.target.value)}
-                                    required
-                                ></input>
-                                <span></span>
-                                <label>Antal i lager</label>
-                            </div>
-                            <div className="txt_field" controlId="category">
-                                <input
-                                    id="category"
-                                    type="text"
-                                    value={category}
-                                    onChange={(e) => setCategory(e.target.value)}
-                                    required
-                                ></input>
-                                <span></span>
-                                <label>Kategori</label>
-                            </div>
-                            <div className="txt_field" controlId="description">
-                                <input
-                                    id="description"
-                                    type="text"
-                                    value={description}
-                                    onChange={(e) => setDescription(e.target.value)}
-                                    required
-                                ></input>
-                                <span></span>
-                                <label>Beskrivning</label>
-                            </div>
-                            <button type="submit">Uppdatera</button>
-                        </form>
-                    )}
-                </div>
+            <div className="center">
+                <h2>Editera Produkt</h2>
+                {loadingUpdate && <Loader />}
+                {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
+                {loading ? (
+                    <Loader />
+                ) : error ? (
+                    <Message variant="danger">{error}</Message>
+                ) : (
+                    <form onSubmit={submitHandler}>
+                        <div className="txt_field" controlId="name">
+                            <input
+                                id="name"
+                                type="name"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}
+                                required
+                            ></input>
+                            <span></span>
+                            <label>Modell</label>
+                        </div>
+                        <div className="txt_field" controlId="price">
+                            <input
+                                id="price"
+                                type="number"
+                                value={price}
+                                onChange={(e) => setPrice(e.target.value)}
+                                required
+                            ></input>
+                            <span></span>
+                            <label>Pris (sek)</label>
+                        </div>
+                        <div className="txt_field" controlId="image">
+                            <input
+                                id="image"
+                                type="text"
+                                value={image}
+                                onChange={(e) => setImage(e.target.value)}
+                                required
+                            ></input>
+                            <input
+                                className="mt-3"
+                                type="file"
+                                id="image-file"
+                                label="Välj fil"
+                                accept="image/png, image/jpeg, image/jpg"
+                                custom
+                                onChange={uploadFileHandler}
+                            ></input>
+                            {uploading && <Loader />}
+                            <span></span>
+                            <label>Bild</label>
+                        </div>
+                        <div className="txt_field" controlId="brand">
+                            <input
+                                id="brand"
+                                type="text"
+                                value={brand}
+                                onChange={(e) => setBrand(e.target.value)}
+                                required
+                            ></input>
+                            <span></span>
+                            <label>Märke</label>
+                        </div>
+                        <div className="txt_field" controlId="countInStock">
+                            <input
+                                id="countInStock"
+                                type="number"
+                                value={countInStock}
+                                onChange={(e) => setCountInStock(e.target.value)}
+                                required
+                            ></input>
+                            <span></span>
+                            <label>Antal i lager</label>
+                        </div>
+                        <div className="txt_field" controlId="category">
+                            <input
+                                id="category"
+                                type="text"
+                                value={category}
+                                onChange={(e) => setCategory(e.target.value)}
+                                required
+                            ></input>
+                            <span></span>
+                            <label>Kategori</label>
+                        </div>
+                        <div className="txt_field" controlId="description">
+                            <input
+                                id="description"
+                                type="text"
+                                value={description}
+                                onChange={(e) => setDescription(e.target.value)}
+                                required
+                            ></input>
+                            <span></span>
+                            <label>Beskrivning</label>
+                        </div>
+                        <button type="submit">Uppdatera</button>
+                    </form>
+                )}
             </div>
-        </>
+        </div>
     )
 }
 
