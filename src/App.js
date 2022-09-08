@@ -17,6 +17,7 @@ import UserListPage from './pages/UserListPage'
 import UserEditPage from './pages/UserEditPage'
 import ProductListPage from './pages/ProductListPage'
 import ProductEditPage from './pages/ProductEditPage'
+import OrderListPage from './pages/OrderListPage'
 
 // eslint-disable-next-line react/function-component-definition
 const App = () => {
@@ -39,6 +40,7 @@ const App = () => {
                     <Route path="/admin/user/:id/edit" element={<UserEditPage />} />
                     <Route path="/admin/productlist" element={<ProductListPage />} />
                     <Route path="admin/product/:id/edit" element={<ProductEditPage />} />
+                    <Route path="admin/orderlist" element={<OrderListPage />} />
                     <Route path="/" element={<HomePage />} exact />
                 </Routes>
             </main>
