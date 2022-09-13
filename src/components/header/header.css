@@ -41,36 +41,9 @@ nav {
     height: 2.3rem;
 }
 
-.navbar__search-bar {
-    border-radius: 50%;
-    width: 4rem;
-    cursor: pointer;
-    height: 4rem;
-    background-color: #f2f2f2;
-    outline: none;
-    background-image: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-search-strong-256.png');
-    background-size: 2.3rem;
-    background-position: center;
-    font-size: 1.6rem;
-    color: #333333;
-    background-repeat: no-repeat;
-    transition-property: width, border-radius, background-position, padding-left /*, transform*/;
-    transition-duration: 0.5s;
-}
-
-nav input:focus {
-    width: 25rem;
-    border-radius: 1rem;
-    cursor: text;
-    padding-left: 40px;
-    padding-right: 20px;
-    background-position: 5px;
-}
-
 .nav-link{
     color: #333333;
 }
-
 
 .dropdown-menu {
     font-size: 1.6rem;
@@ -97,18 +70,5 @@ nav input:focus {
     .navbar__search img {
         width: 2.2rem;
         height: 2.2rem;
-    }
-    .navbar__search-bar {
-        width: 30px;
-        height: 30px;
-        background-color: #f2f2f2;
-        outline: none;
-        background-image: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-search-strong-256.png');
-        background-size: 2.2rem;
-        background-position: center;
-        color: #333333;
-        background-repeat: no-repeat;
-        transition-property: width, border-radius, background-position, padding-left /*, transform*/;
-        transition-duration: 0.5s;
     }
 }
