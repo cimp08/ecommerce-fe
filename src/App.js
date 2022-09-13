@@ -39,8 +39,9 @@ const App = () => {
                     <Route path="/admin/userlist" element={<UserListPage />} />
                     <Route path="/admin/user/:id/edit" element={<UserEditPage />} />
                     <Route path="/admin/productlist" element={<ProductListPage />} />
-                    <Route path="admin/product/:id/edit" element={<ProductEditPage />} />
-                    <Route path="admin/orderlist" element={<OrderListPage />} />
+                    <Route path="/admin/product/:id/edit" element={<ProductEditPage />} />
+                    <Route path="/admin/orderlist" element={<OrderListPage />} />
+                    <Route path="/search/:keyword" element={<HomePage />} />
                     <Route path="/" element={<HomePage />} exact />
                 </Routes>
             </main>
