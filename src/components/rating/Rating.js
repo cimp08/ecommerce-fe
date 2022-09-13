@@ -2,7 +2,6 @@
 import React from 'react'
 import { BsStar, BsStarHalf, BsStarFill } from 'react-icons/bs'
 import './rating.css'
-import PropTypes from 'prop-types'
 
 // eslint-disable-next-line react/function-component-definition
 const Rating = ({ value, text, color }) => {
@@ -49,13 +48,7 @@ const Rating = ({ value, text, color }) => {
 }
 
 Rating.defaultProps = {
-    color: '#828282',
-}
-
-Rating.propTypes = {
-    value: PropTypes.number.isRequired,
-    text: PropTypes.string.isRequired,
-    color: PropTypes.string,
+    color: '#f8e825',
 }
 
 export default Rating
