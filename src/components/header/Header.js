@@ -8,6 +8,7 @@ import LOGO from '../../assets/icons/shield.png'
 import SHOPPINGCART from '../../assets/icons/shopping-bag.png'
 import USER from '../../assets/icons/user.png'
 import { logout } from '../../actions/userAction'
+import Searchbar from '../searchbar/Searchbar'
 
 // eslint-disable-next-line react/function-component-definition
 const Header = () => {
@@ -33,7 +34,7 @@ const Header = () => {
                     </Link>
 
                     <div className="navbar__search">
-                        <input type="search" className="navbar__search-bar" />
+                        <Searchbar />
                         <Link to="/cart">
                             <img src={SHOPPINGCART} alt="shoppingcart icon" />
                         </Link>
