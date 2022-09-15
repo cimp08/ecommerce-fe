@@ -1,3 +1,4 @@
+/* eslint-disable no-unneeded-ternary */
 /* eslint-disable no-nested-ternary */
 /* eslint-disable no-underscore-dangle */
 import React, { useEffect, useState } from 'react'
@@ -7,21 +8,27 @@ import './products.css'
 import Card from '../card/Card'
 import Message from '../message/Message'
 import Loader from '../loader/Loader'
+import Paginate from '../paginate/Paginate'
 import { listProducts } from '../../actions/productActions'
 
 // eslint-disable-next-line react/function-component-definition
 const Products = () => {
     const dispatch = useDispatch()
     const { keyword } = useParams()
+    const { pageNumber } = useParams() || 1
 
     const productList = useSelector((state) => state.productList)
-    const { loading, error, products } = productList
+    const { loading, error, products, page, pages } = productList
 
     const [brand, setBrand] = useState('Apple')
 
     useEffect(() => {
-        dispatch(listProducts(keyword))
-    }, [dispatch, keyword])
+        if (keyword) {
+            dispatch(listProducts('', keyword, pageNumber))
+        } else {
+            dispatch(listProducts(brand, keyword, pageNumber))
+        }
+    }, [dispatch, brand, keyword, pageNumber])
 
     return (
         <section className="products__section">
@@ -77,20 +84,23 @@ const Products = () => {
                         </ul>
                     </div>
                 )}
-                {!keyword ? <h3>{brand}</h3> : <h3>Sökresultat: {keyword}</h3>}
+                {!keyword ? <h3>{brand}</h3> : <h3>Sökresultat för: {keyword}</h3>}
                 {products.length === 0 && <h4 className="text-center">Artikel saknas ...</h4>}
                 {loading ? (
                     <Loader />
                 ) : error ? (
                     <Message variant="danger">{error}</Message>
                 ) : (
-                    <div className="products__section-products">
-                        {products
-                            .filter((p) => p.brand === brand)
-                            .map((product) => (
-                                <Card key={product._id} product={product} />
-                            ))}
-                    </div>
+                    <>
+                        <div className="products__section-products">
+                            {products
+                                /* .filter((p) => p.brand === brand) */
+                                .map((product) => (
+                                    <Card key={product._id} product={product} />
+                                ))}
+                        </div>
+                        <Paginate pages={pages} page={page} keyword={keyword ? keyword : ''} />
+                    </>
                 )}
             </div>
         </section>
