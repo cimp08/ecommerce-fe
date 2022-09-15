@@ -39,7 +39,7 @@
     color: #fff;
 }
 
-.products__section .active {
+.products__section-bar .active {
     font-size: 1.8rem;
     font-weight: 700;
     font-family: 'Barlow', sans-serif;
