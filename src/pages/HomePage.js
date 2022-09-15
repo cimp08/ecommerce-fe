@@ -9,12 +9,7 @@ const HomePage = () => {
     const { keyword } = useParams()
     return (
         <>
-            {keyword && (
-                <>
-                    <Products />
-                    <Featured />
-                </>
-            )}
+            {keyword && <Products />}
 
             {!keyword && (
                 <>
