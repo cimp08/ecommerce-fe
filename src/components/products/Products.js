@@ -93,11 +93,9 @@ const Products = () => {
                 ) : (
                     <>
                         <div className="products__section-products">
-                            {products
-                                /* .filter((p) => p.brand === brand) */
-                                .map((product) => (
-                                    <Card key={product._id} product={product} />
-                                ))}
+                            {products.map((product) => (
+                                <Card key={product._id} product={product} />
+                            ))}
                         </div>
                         <Paginate pages={pages} page={page} keyword={keyword ? keyword : ''} />
                     </>
