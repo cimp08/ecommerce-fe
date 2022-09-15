@@ -15,7 +15,9 @@ const Card = ({ product }) => {
             <p className="card__content-model">{product.name}</p>
             <p className="card__content-price">Pris {product.price}:-</p>
             <Rating value={product.rating} text={`${product.numReviews} recensioner`} />
-            <Link to={`/product/${product._id}`}>info</Link>
+            <Link className="button-info" to={`/product/${product._id}`}>
+                info
+            </Link>
         </div>
     )
 }
