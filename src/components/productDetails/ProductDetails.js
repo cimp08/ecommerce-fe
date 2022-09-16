@@ -11,6 +11,7 @@ import { listProductDetails, createProductReview } from '../../actions/productAc
 import Rating from '../rating/Rating'
 import Loader from '../loader/Loader'
 import Message from '../message/Message'
+import Meta from '../meta/Meta'
 import './productDetails.css'
 import { PRODUCT_CREATE_REVIEW_RESET } from '../../constans/productConstans'
 
@@ -74,6 +75,7 @@ const ProductDetails = () => {
                     <Message variant="danger">{error}</Message>
                 ) : (
                     <>
+                        <Meta title={product.name} />
                         <div className="product__item">
                             <div className="product__item-img">
                                 <img src={product.image} alt={product.name} />

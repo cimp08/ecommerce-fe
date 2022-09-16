@@ -84,7 +84,16 @@ const Products = () => {
                         </ul>
                     </div>
                 )}
-                {!keyword ? <h3>{brand}</h3> : <h3>Sökresultat för: {keyword}</h3>}
+                {!keyword ? (
+                    <h3>{brand}</h3>
+                ) : (
+                    <>
+                        <Link to="/" className="btn">
+                            Tillbaka
+                        </Link>
+                        <h3>Sökresultat för: {keyword}</h3>
+                    </>
+                )}
                 {products.length === 0 && <h4 className="text-center">Artikel saknas ...</h4>}
                 {loading ? (
                     <Loader />
