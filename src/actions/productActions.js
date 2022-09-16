@@ -31,7 +31,10 @@ export const listProducts =
             dispatch({ type: PRODUCT_LIST_REQUEST })
 
             const { data } = await axios.get(
-                `/api/products?brand=${brand}&keyword=${keyword}&pageNumber=${pageNumber}`
+                `/api/products?brand=${brand}&keyword=${keyword}&pageNumber=${pageNumber}`,
+                {
+                    withCredentials: true,
+                }
             )
 
             dispatch({
