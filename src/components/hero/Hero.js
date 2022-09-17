@@ -31,7 +31,9 @@ const Hero = () => {
                             <span>pris</span> 69:-
                         </li>
                         <li>
-                            <Link to="/">lägg till</Link>
+                            <Link to="/" className="text-decoration-none">
+                                lägg till
+                            </Link>
                         </li>
                     </ul>
                 </div>
