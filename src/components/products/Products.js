@@ -92,7 +92,9 @@ const Products = () => {
                         <h3>Sökresultat för: {keyword}</h3>
                     </>
                 )}
-                {products.length === 0 && <h4 className="text-center">Artikel saknas ...</h4>}
+                {!loading && products.length === 0 && (
+                    <h4 className="text-center">Artikel saknas ...</h4>
+                )}
                 {loading ? (
                     <Loader />
                 ) : error ? (
