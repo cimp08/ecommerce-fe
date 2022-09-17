@@ -1,18 +1,12 @@
-.navbar__search img {
-    width: 2.3rem;
-    height: 2.3rem;
-}
-
-.navbar__search-bar {
+.navbar-searchbar {
     border-radius: 50%;
-    width: 4rem;
+    width: 3rem;
     cursor: pointer;
-    height: 4rem;
-    background-color: #f2f2f2;
+    height: 3rem;
     outline: none;
     background-image: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-search-strong-256.png');
-    background-size: 2.3rem;
-    background-position: center;
+    background-size: 2.7rem;
+    background-position: bottom;
     font-size: 1.6rem;
     color: #333333;
     background-repeat: no-repeat;
@@ -20,9 +14,12 @@
     transition-duration: 0.5s;
 }
 
-.navbar__search-bar:focus {
+.navbar-searchbar:focus {
     width: 25rem;
     border-radius: 1rem;
+    background-color: #f2f2f2;
+    background-size: 2rem;
+    background-position: center;
     cursor: text;
     padding-left: 40px;
     padding-right: 20px;
@@ -32,21 +29,28 @@
 /* ------ MEDIA QUERIES MOBILES ------ */
 
 @media screen and (max-width: 600px) {
-    .navbar__search-bar {
+    .navbar-searchbar {
         width: 3rem;
         height: 3rem;
-        background-color: #f2f2f2;
         outline: none;
         background-image: url('https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-search-strong-256.png');
-        background-size: 2.2rem;
-        background-position: center;
+        background-size: 2.4rem;
+        background-position:0 .5rem;
         color: #333333;
         background-repeat: no-repeat;
         transition-property: width, border-radius, background-position, padding-left /*, transform*/;
         transition-duration: 0.5s;
     }
 
-    .navbar__search-bar:focus {
-        width: 20rem;
-    }
+    .navbar-searchbar:focus {
+    width: 30rem;
+    border-radius: 1rem;
+    background-color: #f2f2f2;
+    background-size: 2rem;
+    background-position: center;
+    cursor: text;
+    padding-left: 40px;
+    padding-right: 20px;
+    background-position: 5px;
+}
 }

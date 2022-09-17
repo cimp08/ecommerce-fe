@@ -1,14 +1,14 @@
-.hero__section {
+.hero-section {
     background: radial-gradient(70.02% 276.03% at 70.02% 54.72%, #f5f5f5 33.43%, #e5e5e5 100%);
 }
 
-.hero__section-container {
+.hero-section-container {
     width: var(--container-width-lg);
     margin: 0 auto;
     padding: 8rem 0;
 }
 
-.hero__section-product {
+.hero-section-product {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -17,55 +17,40 @@
     padding-bottom: 5rem;
 }
 
-.hero__section-text h1,
-.hero__section-text h3 {
+.hero-section-text h1,
+.hero-section-text h3 {
     text-transform: uppercase;
     font-size: 4.8rem;
     color: #333333;
     line-height: 5.9rem;
 }
 
-.hero__section-text h1 {
+.hero-section-text h1 {
     font-weight: 700;
 }
 
-.hero__section-text h3 {
+.hero-section-text h3 {
     font-weight: 500;
 }
 
-.hero__section-text p {
+.hero-section-text p {
     color: #333333;
     font-size: 2rem;
     font-weight: 300;
     margin-top: 1rem;
 }
 
-.hero__section-img {
+.hero-section-img {
     width: 450px;
     height: auto;
 }
 
-.hero__section-specs {
-    display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.hero__section-bar {
-    padding: 1rem 3rem;
-    font-size: 1.8rem;
-    font-family: 'Barlow', sans-serif;
-    text-transform: uppercase;
+.hero-section-bar {
     background: rgba(255, 255, 255, 0.8);
     border-radius: 15px;
 }
 
-.hero__section-bar span {
-    font-weight: 700;
-}
-
-.hero__section-bar a {
+.hero-section-bar a {
     padding: 0.8rem 2.5rem;
     background: #333333;
     border-radius: 1.5rem;
@@ -75,15 +60,30 @@
     color: #fff;
 }
 
+.hero-section-specs {
+    font-size: 1.8rem;
+    font-family: 'Barlow', sans-serif;
+    text-transform: uppercase;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 1.5rem 3rem;
+}
+
+.hero-section-specs span {
+    font-weight: 700;
+}
+
 /* ------ MEDIA QUERIES TABLETS ------ */
 
-@media screen and (max-width: 1024px) {
-    .hero__section-specs {
-        padding: 2rem 0;
+@media screen and (max-width: 1038px) {
+    .hero-section-specs {
+        padding: 4rem 0;
         flex-direction: column;
         align-items: center;
     }
-    .hero__section-bar {
+    .hero-section-bar {
         width: 30rem;
         margin: 0 auto;
     }
@@ -92,24 +92,24 @@
 /* ------ MEDIA QUERIES MOBILES ------ */
 
 @media screen and (max-width: 600px) {
-    .hero__section-text h1,
-    .hero__section-text h3 {
+    .hero-section-text h1,
+    .hero-section-text h3 {
         text-transform: uppercase;
         font-size: 2.4rem;
         color: #333333;
         line-height: 3.2rem;
     }
 
-    .hero__section-text p {
+    .hero-section-text p {
         font-size: 1.6rem;
     }
 
-    .hero__section-img {
+    .hero-section-img {
         width: 30rem;
         height: auto;
     }
 
-    .hero__section-bar {
+    .hero-section-bar {
         width: 25rem;
     }
 }

@@ -4,39 +4,24 @@ nav {
     padding: 2rem 0;
 }
 
-.navbar {
-    display: flex;
-    justify-content: space-between;
-}
 
-.navbar__logo {
-    color: #000;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
 
-.navbar__logo:hover {
-    color: #000;
-}
-
-.navbar__logo img {
+.navbar-logo img {
     width: 3rem;
     height: 3rem;
 }
 
-.navbar__logo span {
-    font-weight: 600;
+.navbar-logo p {
+    font-size: 2.2rem;
+    font-weight: 300;
+    margin-bottom: 0;
 }
 
-.navbar__search {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 2rem;
+.navbar-logo span {
+    font-weight: 500;
 }
 
-.navbar__search img {
+.navbar-search img {
     width: 2.3rem;
     height: 2.3rem;
 }
@@ -61,13 +46,12 @@ nav {
         padding: 1rem 0;
     }
     .navbar {
-        display: flex;
         flex-direction: column;
         gap: 1.3rem;
         align-items: center;
     }
 
-    .navbar__search img {
+    .navbar-search img {
         width: 2.2rem;
         height: 2.2rem;
     }

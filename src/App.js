@@ -24,34 +24,28 @@ const App = () => {
     return (
         <Router>
             <Header />
-            <main>
-                <Routes>
-                    <Route path="/login" element={<LoginPage />} />
-                    <Route path="/register" element={<RegisterPage />} />
-                    <Route path="/profile" element={<ProfilePage />} />
-                    <Route path="/shipping" element={<ShippingPage />} />
-                    <Route path="/payment" element={<PaymentPage />} />
-                    <Route path="/placeorder" element={<PlaceOrderPage />} />
-                    <Route path="/order/:id" element={<OrderPage />} />
-                    <Route path="/product/:id" element={<ProductPage />} />
-                    <Route path="/cart/:id" element={<CartPage />} />
-                    <Route path="/cart" element={<CartPage />} />
-                    <Route path="/admin/userlist" element={<UserListPage />} />
-                    <Route path="/admin/user/:id/edit" element={<UserEditPage />} />
-                    <Route path="/admin/productlist" element={<ProductListPage />} exact />
-                    <Route
-                        path="/admin/productlist/:pageNumber"
-                        element={<ProductListPage />}
-                        exact
-                    />
-                    <Route path="/admin/product/:id/edit" element={<ProductEditPage />} />
-                    <Route path="/admin/orderlist" element={<OrderListPage />} />
-                    <Route path="/search/:keyword" element={<HomePage />} exact />
-                    <Route path="/page/:pageNumber" element={<HomePage />} exact />
-                    <Route path="/search/:keyword/page/:pageNumber" element={<HomePage />} exact />
-                    <Route path="/" element={<HomePage />} exact />
-                </Routes>
-            </main>
+            <Routes>
+                <Route path="/login" element={<LoginPage />} />
+                <Route path="/register" element={<RegisterPage />} />
+                <Route path="/profile" element={<ProfilePage />} />
+                <Route path="/shipping" element={<ShippingPage />} />
+                <Route path="/payment" element={<PaymentPage />} />
+                <Route path="/placeorder" element={<PlaceOrderPage />} />
+                <Route path="/order/:id" element={<OrderPage />} />
+                <Route path="/product/:id" element={<ProductPage />} />
+                <Route path="/cart/:id" element={<CartPage />} />
+                <Route path="/cart" element={<CartPage />} />
+                <Route path="/admin/userlist" element={<UserListPage />} />
+                <Route path="/admin/user/:id/edit" element={<UserEditPage />} />
+                <Route path="/admin/productlist" element={<ProductListPage />} exact />
+                <Route path="/admin/productlist/:pageNumber" element={<ProductListPage />} exact />
+                <Route path="/admin/product/:id/edit" element={<ProductEditPage />} />
+                <Route path="/admin/orderlist" element={<OrderListPage />} />
+                <Route path="/search/:keyword" element={<HomePage />} exact />
+                <Route path="/page/:pageNumber" element={<HomePage />} exact />
+                <Route path="/search/:keyword/page/:pageNumber" element={<HomePage />} exact />
+                <Route path="/" element={<HomePage />} exact />
+            </Routes>
             <Footer />
         </Router>
     )

@@ -11,8 +11,8 @@ import FACEBOOK from '../../assets/icons/facebook.png'
 const Footer = () => {
     return (
         <footer>
-            <div className="footer__newsletter">
-                <div className="footer__newsletter-container">
+            <div className="footer-newsletter">
+                <div className="footer-newsletter-container d-flex align-items-center gap-3 text-center">
                     <p>
                         Prenumerera på vårt nyhetsbrev för att hålla dig uppdaterad med senaste
                         produkterna och erbjudanden!
@@ -23,85 +23,88 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <div className="footer__links">
+            <div className="footer-links">
                 <div>
-                    <h3>PRODUKTER</h3>
-                    <ul>
+                    <h3 className="mb-3">PRODUKTER</h3>
+                    <ul className="p-0">
                         <li>
-                            <Link to="/" className="footer__links-link">
+                            <Link to="/" className="footer-links-link">
                                 Nyheter
                             </Link>
                         </li>
                         <li>
-                            <Link to="/" className="footer__links-link">
+                            <Link to="/" className="footer-links-link">
                                 Toppsäljare
                             </Link>
                         </li>
                         <li>
-                            <Link to="/" className="footer__links-link">
+                            <Link to="/" className="footer-links-link">
                                 Rea
                             </Link>
                         </li>
                     </ul>
                 </div>
                 <div>
-                    <h3>HJÄLP</h3>
-                    <ul>
+                    <h3 className="mb-3">HJÄLP</h3>
+                    <ul className="p-0">
                         <li>
-                            <Link to="/" className="footer__links-link">
+                            <Link to="/" className="footer-links-link">
                                 Order
                             </Link>
                         </li>
                         <li>
-                            <Link to="/" className="footer__links-link">
+                            <Link to="/" className="footer-links-link">
                                 Frakt
                             </Link>
                         </li>
                         <li>
-                            <Link to="/" className="footer__links-link">
+                            <Link to="/" className="footer-links-link">
                                 Returer & Byten
                             </Link>
                         </li>
                         <li>
-                            <Link to="/" className="footer__links-link">
+                            <Link to="/" className="footer-links-link">
                                 Kontakta Oss
                             </Link>
                         </li>
                     </ul>
                 </div>
                 <div>
-                    <h3>OM OSS</h3>
-                    <ul>
+                    <h3 className="mb-3">OM OSS</h3>
+                    <ul className="p-0">
                         <li>
-                            <Link to="/" className="footer__links-link">
+                            <Link to="/" className="footer-links-link">
                                 Om glasskydd.se
                             </Link>
                         </li>
                         <li>
-                            <Link to="/" className="footer__links-link">
+                            <Link to="/" className="footer-links-link">
                                 Cookiepolicy
                             </Link>
                         </li>
                         <li>
-                            <Link to="/" className="footer__links-link">
+                            <Link to="/" className="footer-links-link">
                                 Hållbarhet
                             </Link>
                         </li>
                     </ul>
                 </div>
             </div>
-            <div className="footer__socials">
-                <div className="container footer__socials-container">
-                    <Link to="/" className="footer__socials-logo">
+            <div className="footer-socials">
+                <div className="container footer-socials-container">
+                    <Link
+                        to="/"
+                        className="footer-socials-logo d-flex align-items-center gap-2 text-light text-decoration-none"
+                    >
                         <img src={LOGO} alt="white logotype" />
-                        <h2>
+                        <p>
                             glas<span>skydd</span>.se
-                        </h2>
+                        </p>
                     </Link>
-                    <div className="footer__socials-copyright">
-                        <p>© 2022 Glasskydd, Inc. All rights reserved.</p>
+                    <div className="footer-socials-copyright">
+                        <p>© Copyright 2022</p>
                     </div>
-                    <div className="footer__socials-icons">
+                    <div className="footer-socials-icons">
                         <img src={YOUTUBE} alt="youtube logotype" />
                         <img src={INSTAGRAM} alt="instragram logotype" />
                         <img src={FACEBOOK} alt="facebook logotype" />

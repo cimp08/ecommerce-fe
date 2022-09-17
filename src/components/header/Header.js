@@ -25,21 +25,24 @@ const Header = () => {
     return (
         <header>
             <nav>
-                <div className="navbar">
-                    <Link className="navbar__logo" to="/">
-                        <img src={LOGO} alt="white logotype" />
-                        <h2>
+                <div className="navbar d-flex justify-content-between">
+                    <Link
+                        className="navbar-logo d-flex align-items-center gap-2 text-dark text-decoration-none"
+                        to="/"
+                    >
+                        <img src={LOGO} alt="black logotype" />
+                        <p>
                             glas<span>skydd</span>.se
-                        </h2>
+                        </p>
                     </Link>
 
-                    <div className="navbar__search">
+                    <div className="navbar-search d-flex align-items-center justify-content-center flex-wrap gap-5">
                         <Searchbar />
                         <Link to="/cart">
                             <img src={SHOPPINGCART} alt="shoppingcart icon" />
                         </Link>
                         {userInfo ? (
-                            <NavDropdown title={userInfo.name} id="username" className="dropdown">
+                            <NavDropdown title={userInfo.name} id="username" className="pt-2">
                                 <LinkContainer to="/profile">
                                     <NavDropdown.Item>Profil</NavDropdown.Item>
                                 </LinkContainer>
