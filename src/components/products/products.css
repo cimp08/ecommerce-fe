@@ -1,45 +1,43 @@
-.products__section {
+.products-section {
     margin-bottom: 4rem;
     padding: 8rem 0;
     background: radial-gradient(70.02% 276.03% at 70.02% 54.72%, #f5f5f5 33.43%, #e5e5e5 100%);
 }
 
-.products__section-container {
+.products-section-container {
     width: var(--container-width-lg);
     margin: 0 auto;
 }
 
-.products__section-bar {
-    padding: 1rem 0.5rem;
+.products-section-bar {
     background: rgba(255, 255, 255, 0.8);
-    border-radius: 15px;
+    border-radius: 1.5rem;
 }
 
-.products__section-brands {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+.products-section-brands {
+    padding: 1.5rem 3rem;
 }
-
-
 
 .brand-btn {
+    text-decoration: none;
     color: #333333;
     padding: 0.8rem 2.5rem;
     font-size: 1.8rem;
     font-weight: 700;
     font-family: 'Barlow', sans-serif;
     text-transform: uppercase;
+    transition: .3s;
+    border-radius: 1.5rem;
 }
 
 .brand-btn:hover{
     padding: 0.8rem 2.5rem;
     background: #333333;
-    border-radius: 1.5rem;
     color: #fff;
 }
 
-.products__section-bar .active {
+.products-section-bar .active {
+    text-decoration: none;
     font-size: 1.8rem;
     font-weight: 700;
     font-family: 'Barlow', sans-serif;
@@ -50,15 +48,11 @@
     color: #fff;
 }
 
-.products__section h3 {
-    text-align: center;
-    padding: 6rem 0 3rem 0;
-    text-transform: uppercase;
-    font-weight: 700;
-    font-size: 2.4rem;
+.products-section h2 {
+    padding: 5rem 0;
 }
 
-.products__section-products {
+.products-section-products {
     display: grid;
     grid-template-columns: repeat(auto-fill, 25.6rem);
     justify-content: center;
@@ -69,13 +63,13 @@
 /* ------ MEDIA QUERIES TABLETS ------ */
 
 @media screen and (max-width: 1024px) {
-    .products__section-brands {
-        padding: 2rem 0;
+    .products-section-brands {
+        padding: 4rem 0;
         flex-direction: column;
-        gap: 2rem;
+        gap: 2.4rem;
         align-items: center;
     }
-    .products__section-bar {
+    .products-section-bar {
         width: 21rem;
         margin: 0 auto;
     }
@@ -85,14 +79,14 @@
 
 @media screen and (max-width: 732px) {
 
-    .products__section-container {
+    .products-section-container {
     width: var(--container-width-sm);
     margin: 0 auto;
 }
 
-    .products__section-products {
+    .products-section-products {
     display: grid;
-    grid-template-columns: repeat(auto-fill, 14.2rem);
+    grid-template-columns: repeat(auto-fill, 25rem);
     justify-content: center;
     grid-gap: 2.5rem;
     grid-row-gap: 7rem;

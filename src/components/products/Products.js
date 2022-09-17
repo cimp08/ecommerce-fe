@@ -31,11 +31,11 @@ const Products = () => {
     }, [dispatch, brand, keyword, pageNumber])
 
     return (
-        <section className="products__section">
-            <div className="products__section-container">
+        <section className="products-section">
+            <div className="products-section-container">
                 {!keyword && (
-                    <div className="products__section-bar">
-                        <ul className="products__section-brands">
+                    <div className="products-section-bar">
+                        <ul className="products-section-brands d-flex justify-content-between flex-wrap">
                             <li>
                                 <Link
                                     to="/"
@@ -85,12 +85,10 @@ const Products = () => {
                     </div>
                 )}
                 {!keyword ? (
-                    <h3>{brand}</h3>
+                    <h2 className="text-center">{brand}</h2>
                 ) : (
                     <>
-                        <Link to="/" className="btn">
-                            Tillbaka
-                        </Link>
+                        <Link to="/">Tillbaka</Link>
                         <h3>Sökresultat för: {keyword}</h3>
                     </>
                 )}
@@ -101,7 +99,7 @@ const Products = () => {
                     <Message variant="danger">{error}</Message>
                 ) : (
                     <>
-                        <div className="products__section-products">
+                        <div className="products-section-products">
                             {products.map((product) => (
                                 <Card key={product._id} product={product} />
                             ))}

@@ -20,15 +20,15 @@ const Featured = () => {
     }, [dispatch])
 
     return (
-        <section className="featured__section">
+        <section className="featured-section d-flex flex-column align-items-center">
             {loading ? (
                 <Loader />
             ) : error ? (
                 <Message variant="danger">{error}</Message>
             ) : (
                 <>
-                    <h3>Populära Produkter</h3>
-                    <div className="featured__section-cards">
+                    <h2>Populära Produkter</h2>
+                    <div className="featured-section-cards d-flex justify-content-between gap-3">
                         {products.map((product) => (
                             <Card key={product._id} product={product} />
                         ))}

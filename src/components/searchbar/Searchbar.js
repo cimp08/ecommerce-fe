@@ -23,7 +23,7 @@ const Searchbar = () => {
         <>
             <form onSubmit={submitHandler}>
                 <input
-                    className="navbar__search-bar"
+                    className="navbar-searchbar"
                     type="text"
                     name="q"
                     onChange={(e) => setKeyword(e.target.value)}
