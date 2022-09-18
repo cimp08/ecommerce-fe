@@ -4,9 +4,8 @@ import { Link } from 'react-router-dom'
 import './header.css'
 import { LinkContainer } from 'react-router-bootstrap'
 import { NavDropdown } from 'react-bootstrap'
+import { AiOutlineShopping, AiOutlineUser } from 'react-icons/ai'
 import LOGO from '../../assets/icons/shield.png'
-import SHOPPINGCART from '../../assets/icons/shopping-bag.png'
-import USER from '../../assets/icons/user.png'
 import { logout } from '../../actions/userAction'
 import Searchbar from '../searchbar/Searchbar'
 
@@ -39,7 +38,7 @@ const Header = () => {
                     <div className="navbar-search d-flex align-items-center justify-content-center flex-wrap gap-5">
                         <Searchbar />
                         <Link to="/cart">
-                            <img src={SHOPPINGCART} alt="shoppingcart icon" />
+                            <AiOutlineShopping className="icon-cart " />
                         </Link>
                         {userInfo ? (
                             <NavDropdown title={userInfo.name} id="username" className="pt-2">
@@ -65,7 +64,7 @@ const Header = () => {
                             </NavDropdown>
                         ) : (
                             <Link to="/login">
-                                <img src={USER} alt="user icon" />
+                                <AiOutlineUser className="icon-user" />
                             </Link>
                         )}
                     </div>
