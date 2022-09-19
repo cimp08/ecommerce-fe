@@ -1,14 +1,31 @@
 .section-payment {
+  display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
   padding: 5rem 0;
   background: radial-gradient(70.02% 276.03% at 70.02% 54.72%, #f5f5f5 33.43%, #e5e5e5 100%);
 }
 
 .section-payment .center{
   margin: 0 auto;
-  padding-bottom: 2rem;
+  padding: 2rem 0;
   width: 55rem;
   background: white;
   border-radius: 1rem;
   box-shadow: 1rem 1rem 1.5rem rgba(0,0,0,0.05);
 }
 
+/* ------ MEDIA QUERIES MOBILES ------ */
+
+@media screen and (max-width: 600px) {
+    .section-payment .center {
+        width: 40rem;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .section-payment .center {
+        width: 30rem;
+    }
+}

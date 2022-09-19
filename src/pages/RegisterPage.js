@@ -42,7 +42,7 @@ const RegisterPage = () => {
     return (
         <div className="section-register">
             <div className="center">
-                <h2>Hej! Skapa ett konto</h2>
+                <h2>Skapa konto</h2>
                 {message && <Message variant="danger">{message}</Message>}
                 {error && <Message variant="danger">{error}</Message>}
                 {loading && <Loader />}
@@ -91,11 +91,18 @@ const RegisterPage = () => {
                         <span></span>
                         <label>Bekräfta lösenord</label>
                     </div>
-                    <button type="submit">Skapa konto</button>
+                    <button className="btn-black w-100" type="submit">
+                        Skapa konto !
+                    </button>
                 </form>
                 <p>
                     Har du ett konto?{' '}
-                    <Link to={redirect ? `/login?redirect=${redirect}` : '/login'}>Logga in!</Link>
+                    <Link
+                        className="link-black"
+                        to={redirect ? `/login?redirect=${redirect}` : '/login'}
+                    >
+                        Logga in!
+                    </Link>
                 </p>
             </div>
         </div>

@@ -30,7 +30,7 @@ const ShippingPage = () => {
         <div className="section-shipping">
             <div className="center">
                 <CheckoutSteps step1 step2 />
-                <h2>Shipping</h2>
+                <h2>Leverans</h2>
                 <form onSubmit={submitHandler}>
                     <div className="txt_field" controlId="address">
                         <input
@@ -76,7 +76,9 @@ const ShippingPage = () => {
                         <span></span>
                         <label>Land</label>
                     </div>
-                    <button type="submit">Fortsätt</button>
+                    <button className="btn-black w-100" type="submit">
+                        Betalning ...
+                    </button>
                 </form>
             </div>
         </div>

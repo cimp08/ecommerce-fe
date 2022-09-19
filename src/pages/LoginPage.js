@@ -61,11 +61,16 @@ const LoginPage = () => {
                         <span></span>
                         <label>Lösenord</label>
                     </div>
-                    <button type="submit">Logga in</button>
+                    <button className="btn-black w-100" type="submit">
+                        Logga in
+                    </button>
                 </form>
                 <p>
                     Ny kund?{' '}
-                    <Link to={redirect ? `/register?redirect=${redirect}` : '/register'}>
+                    <Link
+                        className="link-black"
+                        to={redirect ? `/register?redirect=${redirect}` : '/register'}
+                    >
                         Registera dig här!
                     </Link>
                 </p>
