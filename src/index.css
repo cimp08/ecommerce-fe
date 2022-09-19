@@ -40,7 +40,6 @@ body {
     flex-direction: column;
 }
 
-
 /* ------ GENERAL STYLES------ */
 
 .container {
@@ -54,4 +53,91 @@ h2 {
     text-transform: uppercase;
     font-weight: 700;
     font-size: 2.4rem;
+}
+
+/* ------ BUTTONS------ */
+
+.btn-black,
+.btn-white {
+    font-family: 'Barlow', sans-serif;
+    align-items: center;
+    border: 0;
+    border-radius: 10rem;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: inline-flex;
+    font-size: 1.6rem;
+    font-weight: 500;
+    justify-content: center;
+    line-height: 2rem;
+    max-width: 48rem;
+    min-height: 5rem;
+    min-width: 0rem;
+    overflow: hidden;
+    text-align: center;
+    touch-action: manipulation;
+    transition: background-color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+        box-shadow 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s,
+        color 0.167s cubic-bezier(0.4, 0, 0.2, 1) 0s;
+    user-select: none;
+    -webkit-user-select: none;
+    vertical-align: middle;
+}
+
+.btn-black {
+    background-color: #333;
+    color: #ffffff;
+    padding: 0rem 5rem;
+}
+
+.btn-black:hover,
+.btn-black:focus {
+    background-color: #000;
+    color: #ffffff;
+}
+
+.btn-black:active {
+    background: #000;
+    color: rgb(255, 255, 255, 0.7);
+}
+
+.btn-black:disabled {
+    cursor: not-allowed;
+    background: rgba(0, 0, 0, 0.08);
+    color: rgba(0, 0, 0, 0.3);
+}
+
+.btn-white {
+    background-color: #fff;
+    border: 2px solid #333;
+    color: #333;
+    padding: 0rem 5rem;
+}
+
+.btn-white:hover,
+.btn-white:focus {
+    color: #000;
+} 
+
+/* ------ LINKS------ */
+
+.link-black {
+    color: #000;
+    text-decoration: none;
+}
+
+.link-black:hover {
+    color: #000;
+    border-bottom: 1px solid #000;
+}
+
+.link-red {
+    color: #ff0000;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+.link-red:hover {
+    color: #ff0000;
+    border-bottom: 1px solid #ff0000;
 }
