@@ -1,0 +1,18 @@
+.section-order {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 5rem 0;
+    background: radial-gradient(70.02% 276.03% at 70.02% 54.72%, #f5f5f5 33.43%, #e5e5e5 100%);
+}
+
+.order-container {
+    width: var(--container-width-md);
+    margin: 0 auto;
+    padding: 4rem 0;
+}
+
+.order-container span {
+    font-size: 1.8rem;
+    font-weight: 500;
+}

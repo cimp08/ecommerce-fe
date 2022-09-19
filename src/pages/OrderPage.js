@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable no-undef */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable no-nested-ternary */
@@ -11,6 +12,7 @@ import Message from '../components/message/Message'
 import Loader from '../components/loader/Loader'
 import { getOrderDetails, payOrder, deliverOrder } from '../actions/orderActions'
 import { ORDER_PAY_RESET, ORDER_DELIVER_RESET } from '../constans/orderConstans'
+import './orderPage.css'
 
 // eslint-disable-next-line react/function-component-definition
 const OrderPage = () => {
@@ -71,7 +73,7 @@ const OrderPage = () => {
                 setSdkReady(true)
             }
         }
-    }, [dispatch, id, successPay, order, successDeliver])
+    }, [dispatch, id, successPay, order, successDeliver, userInfo, navigate])
 
     const successPaymentHandler = (paymentResult) => {
         dispatch(payOrder(id, paymentResult))
@@ -88,146 +90,164 @@ const OrderPage = () => {
     ) : error ? (
         <Message variant="danger">{error}</Message>
     ) : (
-        <>
-            <h2 className="mb-5">Beställning ({order._id})</h2>
-            <Row>
-                <Col md={8}>
-                    <ListGroup variant="flush">
-                        <ListGroup.Item>
-                            <h2>Leverans</h2>
-                            <p>
-                                <strong>Name: </strong>
-                                {order.user.name}
-                            </p>
-                            <p>
-                                <strong>Epost: </strong>
-                                <a href={`mailto:${order.user.email}`}>{order.user.email}</a>
-                            </p>
-                            <p>
-                                <strong>Adress: </strong>
-                                {order.shippingAddress.address}, {order.shippingAddress.city},{' '}
-                                {order.shippingAddress.postalCode}, {order.shippingAddress.country}
-                            </p>
-                            {order.isDelivered ? (
-                                <Message variant="success">Levererad: {order.deliveredAt}.</Message>
-                            ) : (
-                                <Message variant="danger">Inte levererad.</Message>
-                            )}
-                        </ListGroup.Item>
+        <div className="section-order">
+            <div className="order-container">
+                <h2 className="mb-5">
+                    Beställning <span>({order._id})</span>
+                </h2>
+                <Row>
+                    <Col md={8}>
+                        <ListGroup>
+                            <ListGroup.Item className="bg-transparent py-4">
+                                <p className="mt-3 fs-2 text-uppercase">Leverans</p>
+                                <p>{order.user.name}</p>
+                                <p>
+                                    <a className="link-black" href={`mailto:${order.user.email}`}>
+                                        {order.user.email}
+                                    </a>
+                                </p>
+                                <p>
+                                    {order.shippingAddress.address}, {order.shippingAddress.city},{' '}
+                                    {order.shippingAddress.postalCode},{' '}
+                                    {order.shippingAddress.country}
+                                </p>
+                                {order.isDelivered ? (
+                                    <Message variant="success">
+                                        Levererad: {order.deliveredAt}.
+                                    </Message>
+                                ) : (
+                                    <Message variant="danger">Inte levererad.</Message>
+                                )}
+                            </ListGroup.Item>
 
-                        <ListGroup.Item>
-                            <h2>Betalning</h2>
-                            <p>
-                                <strong>Alternativ: </strong>
-                                {order.paymentMethod}
-                            </p>
-                            {order.isPaid ? (
-                                <Message variant="success">Betald: {order.paidAt}.</Message>
-                            ) : (
-                                <Message variant="danger">Ingen betalning.</Message>
-                            )}
-                        </ListGroup.Item>
+                            <ListGroup.Item className="bg-transparent py-4">
+                                <p className="mt-3 fs-2 text-uppercase">Betalning</p>
+                                <p>{order.paymentMethod}</p>
+                                {order.isPaid ? (
+                                    <Message variant="success">Betald: {order.paidAt}.</Message>
+                                ) : (
+                                    <Message variant="danger">Ingen betalning.</Message>
+                                )}
+                            </ListGroup.Item>
 
-                        <ListGroup.Item>
-                            <h2>Artiklar</h2>
-                            {order.orderItems.length === 0 ? (
-                                <Message>Beställningen är tom</Message>
-                            ) : (
-                                <ListGroup variant="flush">
-                                    {order.orderItems.map((item, index) => (
-                                        // eslint-disable-next-line react/no-array-index-key
-                                        <ListGroup.Item key={index}>
-                                            <Row>
-                                                <Col md={1}>
-                                                    <Image
-                                                        src={item.image}
-                                                        alt={item.name}
-                                                        fluid
-                                                        rounded
-                                                    />
-                                                </Col>
-                                                <Col>
-                                                    <Link to={`/product/${item.product}`}>
-                                                        {item.name}
-                                                    </Link>
-                                                </Col>
-                                                <Col md={4}>
-                                                    {item.qty} st x {item.price} kr ={' '}
-                                                    {item.qty * item.price} kr
-                                                </Col>
-                                            </Row>
-                                        </ListGroup.Item>
-                                    ))}
-                                </ListGroup>
-                            )}
-                        </ListGroup.Item>
-                    </ListGroup>
-                </Col>
-                <Col md={4}>
-                    <Card>
-                        <ListGroup variant="flush">
-                            <ListGroup.Item>
-                                <h2>Sammanfattning Beställning</h2>
+                            <ListGroup.Item className="bg-transparent py-4">
+                                <p className="mt-3 fs-2 text-uppercase">Artiklar</p>
+                                {order.orderItems.length === 0 ? (
+                                    <Message>Beställningen är tom</Message>
+                                ) : (
+                                    <ListGroup>
+                                        {order.orderItems.map((item, index) => (
+                                            // eslint-disable-next-line react/no-array-index-key
+                                            <ListGroup.Item
+                                                className="bg-transparent border border-top-0 border-end-0 border-start-0 py-4"
+                                                key={index}
+                                            >
+                                                <Row>
+                                                    <Col md={1}>
+                                                        <Image
+                                                            className="mb-3"
+                                                            src={item.image}
+                                                            alt={item.name}
+                                                            fluid
+                                                        />
+                                                    </Col>
+                                                    <Col>
+                                                        <Link
+                                                            className="link-checkout"
+                                                            to={`/product/${item.product}`}
+                                                        >
+                                                            <p className="mt-1">{item.name}</p>
+                                                        </Link>
+                                                    </Col>
+                                                    <Col md={4}>
+                                                        <p>
+                                                            {item.qty} st x {item.price} kr ={' '}
+                                                            {item.qty * item.price} kr
+                                                        </p>
+                                                    </Col>
+                                                </Row>
+                                            </ListGroup.Item>
+                                        ))}
+                                    </ListGroup>
+                                )}
                             </ListGroup.Item>
-                            <ListGroup.Item>
-                                <Row>
-                                    <Col>Artiklar</Col>
-                                    <Col>{order.itemsPrice} kr</Col>
-                                </Row>
-                            </ListGroup.Item>
-                            <ListGroup.Item>
-                                <Row>
-                                    <Col>Frakt</Col>
-                                    <Col>
-                                        {order.shippingPrice === 0
-                                            ? 'Gratis'
-                                            : `${order.shippingPrice} kr`}
-                                    </Col>
-                                </Row>
-                            </ListGroup.Item>
-                            <ListGroup.Item>
-                                <Row>
-                                    <Col>Moms</Col>
-                                    <Col>{order.taxPrice} kr</Col>
-                                </Row>
-                            </ListGroup.Item>
-                            <ListGroup.Item>
-                                <Row>
-                                    <Col>Totalt</Col>
-                                    <Col>{order.totalPrice} kr</Col>
-                                </Row>
-                            </ListGroup.Item>
-                            {!order.isPaid && (
-                                <ListGroup.Item>
-                                    {loadingPay && <Loader />}
-                                    {!sdkReady ? (
-                                        <Loader />
-                                    ) : (
-                                        <PayPalButton
-                                            amount={order.totalPrice}
-                                            currency="SEK"
-                                            onSuccess={successPaymentHandler}
-                                        />
-                                    )}
-                                </ListGroup.Item>
-                            )}
-                            {loadingDeliver && <Loader />}
-                            {userInfo && userInfo.isAdmin && order.isPaid && !order.isDelivered && (
-                                <ListGroup.Item>
-                                    <Button
-                                        type="button"
-                                        className="btn btn-block"
-                                        onClick={deliverHandler}
-                                    >
-                                        Ändra till levererad
-                                    </Button>
-                                </ListGroup.Item>
-                            )}
                         </ListGroup>
-                    </Card>
-                </Col>
-            </Row>
-        </>
+                    </Col>
+                    <Col md={4}>
+                        <Card>
+                            <ListGroup>
+                                <ListGroup.Item>
+                                    <p className="mt-3 fs-2 text-uppercase">
+                                        Sammanfattning Beställning
+                                    </p>
+                                </ListGroup.Item>
+                                <ListGroup.Item>
+                                    <Row className="mt-2">
+                                        <Col>Artiklar</Col>
+                                        <Col>{order.itemsPrice} kr</Col>
+                                    </Row>
+                                </ListGroup.Item>
+                                <ListGroup.Item>
+                                    <Row className="mt-2">
+                                        <Col>Frakt</Col>
+                                        <Col>
+                                            {order.shippingPrice === 0
+                                                ? 'Gratis'
+                                                : `${order.shippingPrice} kr`}
+                                        </Col>
+                                    </Row>
+                                </ListGroup.Item>
+                                <ListGroup.Item>
+                                    <Row className="mt-2">
+                                        <Col>Moms</Col>
+                                        <Col>{order.taxPrice} kr</Col>
+                                    </Row>
+                                </ListGroup.Item>
+                                <ListGroup.Item className="mb-4">
+                                    <Row className="mt-2">
+                                        <Col>
+                                            <strong>Totalt</strong>
+                                        </Col>
+                                        <Col>
+                                            <strong>{order.totalPrice} kr</strong>
+                                        </Col>
+                                    </Row>
+                                </ListGroup.Item>
+                                {!order.isPaid && (
+                                    <ListGroup.Item>
+                                        {loadingPay && <Loader />}
+                                        {!sdkReady ? (
+                                            <Loader />
+                                        ) : (
+                                            <PayPalButton
+                                                amount={order.totalPrice}
+                                                currency="SEK"
+                                                onSuccess={successPaymentHandler}
+                                            />
+                                        )}
+                                    </ListGroup.Item>
+                                )}
+                                {loadingDeliver && <Loader />}
+                                {userInfo &&
+                                    userInfo.isAdmin &&
+                                    order.isPaid &&
+                                    !order.isDelivered && (
+                                        <ListGroup.Item>
+                                            <Button
+                                                type="button"
+                                                className="btn btn-block"
+                                                onClick={deliverHandler}
+                                            >
+                                                Ändra till levererad
+                                            </Button>
+                                        </ListGroup.Item>
+                                    )}
+                            </ListGroup>
+                        </Card>
+                    </Col>
+                </Row>
+            </div>
+        </div>
     )
 }
 

@@ -1,13 +1,27 @@
 .section-shipping {
-  padding: 5rem 0;
-  background: radial-gradient(70.02% 276.03% at 70.02% 54.72%, #f5f5f5 33.43%, #e5e5e5 100%);
+    padding: 5rem 0;
+    background: radial-gradient(70.02% 276.03% at 70.02% 54.72%, #f5f5f5 33.43%, #e5e5e5 100%);
 }
 
-.section-shipping .center{
-  margin: 0 auto;
-  padding-bottom: 2rem;
-  width: 55rem;
-  background: white;
-  border-radius: 1rem;
-  box-shadow: 1rem 1rem 1.5rem rgba(0,0,0,0.05);
+.section-shipping .center {
+    margin: 0 auto;
+    padding: 2rem 0;
+    width: 55rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 1rem 1rem 1.5rem rgba(0, 0, 0, 0.05);
+}
+
+/* ------ MEDIA QUERIES MOBILES ------ */
+
+@media screen and (max-width: 600px) {
+    .section-shipping .center {
+        width: 40rem;
+    }
+}
+
+@media screen and (max-width: 440px) {
+    .section-shipping .center {
+        width: 30rem;
+    }
 }

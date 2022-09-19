@@ -9,7 +9,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
             <Nav.Item>
                 {step1 ? (
                     <LinkContainer to="/login">
-                        <Nav.Link>Logga in</Nav.Link>
+                        <Nav.Link className="link-checkout">Logga in</Nav.Link>
                     </LinkContainer>
                 ) : (
                     <Nav.Link disabled>Logga in</Nav.Link>
@@ -18,7 +18,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
             <Nav.Item>
                 {step2 ? (
                     <LinkContainer to="/shipping">
-                        <Nav.Link>Leverans</Nav.Link>
+                        <Nav.Link className="link-checkout">Leverans</Nav.Link>
                     </LinkContainer>
                 ) : (
                     <Nav.Link disabled>Leverans</Nav.Link>
@@ -27,7 +27,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
             <Nav.Item>
                 {step3 ? (
                     <LinkContainer to="/payment">
-                        <Nav.Link>Betalning</Nav.Link>
+                        <Nav.Link className="link-checkout">Betalning</Nav.Link>
                     </LinkContainer>
                 ) : (
                     <Nav.Link disabled>Betalning</Nav.Link>
@@ -36,7 +36,7 @@ const CheckoutSteps = ({ step1, step2, step3, step4 }) => {
             <Nav.Item>
                 {step4 ? (
                     <LinkContainer to="/placeorder">
-                        <Nav.Link>Lägg Beställning</Nav.Link>
+                        <Nav.Link className="link-checkout">Lägg Beställning</Nav.Link>
                     </LinkContainer>
                 ) : (
                     <Nav.Link disabled>Lägg Beställning</Nav.Link>

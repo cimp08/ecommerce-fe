@@ -47,7 +47,9 @@ const PaymentPage = () => {
                             ></Form.Check>
                         </Col>
                     </Form.Group>
-                    <button type="submit">Fortsätt</button>
+                    <button className="btn-black w-100" type="submit">
+                        Lägg Beställning
+                    </button>
                 </form>
             </div>
         </div>
