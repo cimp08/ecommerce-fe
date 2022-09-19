@@ -18,11 +18,13 @@ import UserEditPage from './pages/UserEditPage'
 import ProductListPage from './pages/ProductListPage'
 import ProductEditPage from './pages/ProductEditPage'
 import OrderListPage from './pages/OrderListPage'
+import ScrollToTop from './components/scrollToTop/ScrollToTop'
 
 // eslint-disable-next-line react/function-component-definition
 const App = () => {
     return (
         <Router>
+            <ScrollToTop />
             <Header />
             <Routes>
                 <Route path="/login" element={<LoginPage />} />
