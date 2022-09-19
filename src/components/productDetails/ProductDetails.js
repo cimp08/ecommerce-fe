@@ -4,7 +4,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Form, Row, Col, ListGroup, Button } from 'react-bootstrap'
+import { Form, Row, Col, ListGroup } from 'react-bootstrap'
 import { TbTruckDelivery } from 'react-icons/tb'
 import { BsArrowLeft } from 'react-icons/bs'
 import { listProductDetails, createProductReview } from '../../actions/productActions'
@@ -20,6 +20,7 @@ const ProductDetails = () => {
     const [qty, setQty] = useState(1)
     const [rating, setRating] = useState(0)
     const [comment, setComment] = useState('')
+    const [showMore, setShowMore] = useState(false)
 
     const dispatch = useDispatch()
 
@@ -35,7 +36,6 @@ const ProductDetails = () => {
     // Get the id from the url
     const { id } = useParams()
     const navigate = useNavigate()
-    /* const [showMore, setShowMore] = useState(false) */
 
     useEffect(() => {
         if (successProductReview) {
@@ -63,10 +63,10 @@ const ProductDetails = () => {
     }
 
     return (
-        <section className="product__section">
-            <div className="product__container">
-                <Link className="back" to="/">
-                    <BsArrowLeft className="back-icon" />
+        <section className="product-section">
+            <div className="product-container">
+                <Link className="link-black" to="/">
+                    <BsArrowLeft className="icon-back" />
                     Tillbaka
                 </Link>
                 {loading ? (
@@ -76,12 +76,12 @@ const ProductDetails = () => {
                 ) : (
                     <>
                         <Meta title={product.name} />
-                        <div className="product__item">
-                            <div className="product__item-img">
+                        <div className="product-item d-flex flex-wrap gap-5 mt-5">
+                            <div className="product-item-img d-flex align-items-center justify-content-center bg-white">
                                 <img src={product.image} alt={product.name} />
                             </div>
-                            <div className="product__item-info">
-                                <div className="price-rating">
+                            <div className="product-item-info">
+                                <div className="d-flex justify-content-between align-items-center">
                                     <p className="price">{product.price} kr</p>
                                     <Rating
                                         value={product.rating}
@@ -91,6 +91,7 @@ const ProductDetails = () => {
                                 <h3 className="name">Glasskydd 9HD- {product.name}</h3>
                                 {product.countInStock > 0 && (
                                     <Form.Select
+                                        className="stock-option"
                                         size="lg"
                                         value={qty}
                                         onChange={(e) => setQty(e.target.value)}
@@ -103,15 +104,15 @@ const ProductDetails = () => {
                                     </Form.Select>
                                 )}
                                 <button
-                                    className="btn"
+                                    className="btn-black mt-4 w-100"
                                     onClick={addToCartHandler}
                                     disabled={product.countInStock === 0}
                                 >
-                                    Köp
+                                    Lägg i varukorgen
                                 </button>
-                                <div className="stock">
+                                <div className="stock d-flex align-items-center gap-3">
                                     <TbTruckDelivery className="stock-icon" />
-                                    <p>
+                                    <p className="mb-0">
                                         {product.countInStock > 0
                                             ? 'Finns i lager !'
                                             : 'Slut i lager !'}
@@ -119,35 +120,37 @@ const ProductDetails = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="product__description">
-                            <h3>Produktbeskrivning</h3>
-                            <p>{product.description}</p>
-                            {/* <p>
-                                {showMore
-                                    ? product.description
-                                    : `${product.description.substring(0, 100)}`}
-                            </p>
-                            <button className="btn-read" onClick={() => setShowMore(!showMore)}>
-                                {showMore ? 'Dölj' : 'Läs mer'}
-                            </button> */}
+                        <div className="product-description d-flex flex-column">
+                            <h3 className="mb-5">Produktbeskrivning</h3>
+                            {!loading && product.description && !showMore
+                                ? product.description.substring(0, 143)
+                                : product.description}
+                            <button
+                                className={showMore ? 'visually-hidden' : 'btn-white mt-3'}
+                                onClick={() => setShowMore(!showMore)}
+                            >
+                                Läs mer ...
+                            </button>
                         </div>
                         <Row>
                             <Col md={6}>
-                                <h3>Recensioner</h3>
+                                <h3 className="my-5">Recensioner</h3>
                                 {product.reviews.length === 0 && (
                                     <Message>Inga recensioner</Message>
                                 )}
                                 <ListGroup variant="flush">
                                     {product.reviews.map((review) => (
                                         <ListGroup.Item key={review._id}>
-                                            <strong>{review.name}</strong>
+                                            <p className="mt-1">
+                                                <strong>{review.name}</strong>
+                                            </p>
                                             <Rating value={review.rating} />
                                             <p>{review.createdAt.substring(0, 10)}</p>
                                             <p>{review.comment}</p>
                                         </ListGroup.Item>
                                     ))}
                                     <ListGroup.Item>
-                                        <h3>Skriv en recension</h3>
+                                        <h3 className="my-5">Skriv en recension</h3>
                                         {errorProductReview && (
                                             <Message variant="danger">{errorProductReview}</Message>
                                         )}
@@ -157,34 +160,43 @@ const ProductDetails = () => {
                                                     <Form.Label>Betyg</Form.Label>
                                                     <Form.Control
                                                         as="select"
+                                                        className="rate-options form-select-lg mb-5"
                                                         value={rating}
                                                         onChange={(e) => setRating(e.target.value)}
+                                                        required
                                                     >
                                                         <option value="">Välj...</option>
-                                                        <option value="1">1</option>
-                                                        <option value="2">2</option>
-                                                        <option value="3">3</option>
-                                                        <option value="4">4</option>
-                                                        <option value="5">5</option>
+                                                        <option value="1">1 Stjärna</option>
+                                                        <option value="2">2 Stjärnor</option>
+                                                        <option value="3">3 Stjärnor</option>
+                                                        <option value="4">4 Stjärnor</option>
+                                                        <option value="5">5 Stjärnor</option>
                                                     </Form.Control>
                                                 </Form.Group>
                                                 <Form.Group controlId="comment">
                                                     <Form.Label>Kommentar</Form.Label>
                                                     <Form.Control
+                                                        className="comment-text-area"
                                                         as="textarea"
-                                                        row="3"
+                                                        row="5"
                                                         value={comment}
                                                         onChange={(e) => setComment(e.target.value)}
+                                                        required
                                                     />
-                                                    <Button type="submit" variant="primary">
+                                                    <button
+                                                        type="submit"
+                                                        className="btn-black my-4"
+                                                    >
                                                         Skicka
-                                                    </Button>
+                                                    </button>
                                                 </Form.Group>
                                             </Form>
                                         ) : (
-                                            <Message>
-                                                <Link to="/login">Logga in</Link> för att skriva en
-                                                recension
+                                            <Message variant="dark">
+                                                <Link className="link-black" to="/login">
+                                                    Logga in
+                                                </Link>{' '}
+                                                för att skriva en recension
                                             </Message>
                                         )}
                                     </ListGroup.Item>

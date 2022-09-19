@@ -39,85 +39,118 @@ const CartPage = () => {
     }
 
     return (
-        <div className="cart__container">
-            <Row>
-                <Col md={8}>
-                    <h1>Kundvagn</h1>
-                    {cartItems.length === 0 ? (
-                        <Message>
-                            Din kundvagn är tom. <Link to="/">Fortsätt handla</Link>
-                        </Message>
-                    ) : (
-                        <ListGroup variant="flush">
-                            {cartItems.map((item) => (
-                                <ListGroup.Item key={item.product}>
-                                    <Row>
-                                        <Col md={2}>
-                                            <Image src={item.image} alt={item.name} fluid rounded />
-                                        </Col>
-                                        <Col md={3}>
-                                            <Link to={`/product/${item.product}`}>{item.name}</Link>
-                                        </Col>
-                                        <Col md={2}>{item.price} kr</Col>
-                                        <Col md={2}>
-                                            <Form.Select
-                                                size="lg"
-                                                value={item.qty}
-                                                onChange={(e) =>
-                                                    dispatch(
-                                                        addToCart(
-                                                            item.product,
-                                                            Number(e.target.value)
+        <div className="section-cart">
+            <div className="cart-container">
+                <Row>
+                    <Col md={8}>
+                        <h2 className="mb-5">Kundvagn</h2>
+                        {cartItems.length === 0 ? (
+                            <Message variant="dark">
+                                Din kundvagn är tom.{' '}
+                                <Link className="link-black" to="/">
+                                    Fortsätt handla
+                                </Link>
+                            </Message>
+                        ) : (
+                            <ListGroup>
+                                {cartItems.map((item) => (
+                                    <ListGroup.Item
+                                        className="bg-transparent py-4"
+                                        key={item.product}
+                                    >
+                                        <Row>
+                                            <Col md={2}>
+                                                <Image
+                                                    src={item.image}
+                                                    alt={item.name}
+                                                    fluid
+                                                    rounded
+                                                />
+                                            </Col>
+                                            <Col md={3}>
+                                                <Link
+                                                    className="link-black"
+                                                    to={`/product/${item.product}`}
+                                                >
+                                                    {item.name}
+                                                </Link>
+                                            </Col>
+                                            <Col md={2}>{item.price} kr</Col>
+                                            <Col md={2}>
+                                                <Form.Select
+                                                    className="stock-options"
+                                                    size="lg"
+                                                    value={item.qty}
+                                                    onChange={(e) =>
+                                                        dispatch(
+                                                            addToCart(
+                                                                item.product,
+                                                                Number(e.target.value)
+                                                            )
                                                         )
-                                                    )
-                                                }
-                                            >
-                                                {[...Array(item.countInStock).keys()].map((x) => (
-                                                    <option key={x + 1} value={x + 1}>
-                                                        {x + 1}
-                                                    </option>
-                                                ))}
-                                            </Form.Select>
-                                        </Col>
-                                        <Col md={2}>
-                                            <Button
-                                                type="button"
-                                                variant="light"
-                                                onClick={() => removeFromCartHandler(item.product)}
-                                            >
-                                                Ta bort
-                                            </Button>
-                                        </Col>
-                                    </Row>
+                                                    }
+                                                >
+                                                    {[...Array(item.countInStock).keys()].map(
+                                                        (x) => (
+                                                            <option key={x + 1} value={x + 1}>
+                                                                {x + 1}
+                                                            </option>
+                                                        )
+                                                    )}
+                                                </Form.Select>
+                                            </Col>
+                                            <Col md={2}>
+                                                <button
+                                                    className="link-red mt-1"
+                                                    type="button"
+                                                    onClick={() =>
+                                                        removeFromCartHandler(item.product)
+                                                    }
+                                                >
+                                                    Ta bort
+                                                </button>
+                                            </Col>
+                                        </Row>
+                                    </ListGroup.Item>
+                                ))}
+                            </ListGroup>
+                        )}
+                    </Col>
+                    <Col md={4}>
+                        <Card className="mt-3">
+                            <ListGroup>
+                                <ListGroup.Item>
+                                    <p className="mt-3 fs-2 text-uppercase">
+                                        Totalt:{' '}
+                                        {cartItems.reduce((acc, item) => acc + item.qty * 1, 0)}{' '}
+                                        artiklar
+                                    </p>
+                                    <p className="my-4">
+                                        <strong>
+                                            Att betala:{' '}
+                                            {cartItems.reduce(
+                                                (acc, item) => acc + item.qty * item.price,
+                                                0
+                                            )}{' '}
+                                            kr
+                                        </strong>
+                                    </p>
                                 </ListGroup.Item>
-                            ))}
-                        </ListGroup>
-                    )}
-                </Col>
-                <Col md={4}>
-                    <Card>
-                        <ListGroup variant="flush">
-                            <ListGroup.Item>
-                                <h2>
-                                    Totalt {cartItems.reduce((acc, item) => acc + item.qty * 1, 0)}{' '}
-                                    artiklar
-                                </h2>
-                                {cartItems.reduce((acc, item) => acc + item.qty * item.price, 0)} kr
-                            </ListGroup.Item>
-                            <ListGroup.Item>
-                                <Button
-                                    type="button"
-                                    className="btn-block"
-                                    disabled={cartItems.length === 0}
-                                    onClick={checkoutHandler}
-                                >
-                                    Checkout
-                                </Button>
-                            </ListGroup.Item>
-                        </ListGroup>
-                    </Card>
-                </Col>
-            </Row>
+                                <ListGroup.Item>
+                                    <Button
+                                        type="button"
+                                        className="btn-black w-100 my-4"
+                                        disabled={cartItems.length === 0}
+                                        onClick={checkoutHandler}
+                                    >
+                                        Fortsätt
+                                    </Button>
+                                </ListGroup.Item>
+                            </ListGroup>
+                        </Card>
+                    </Col>
+                </Row>
+            </div>
         </div>
     )
 }
