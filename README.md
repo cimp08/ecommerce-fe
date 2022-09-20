@@ -1,104 +1,146 @@
-# Glasskydd.se - Ecommerce
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <!-- <a href="https://github.com/">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a> -->
 
-Ongoing ecommerce project
+  <h3 align="center">Glasskydd E-commerce -MERN</h3>
 
-## Table of Contents
+  <p align="center">
+    Glasskydd is an ecommerce ...
+    <br />
+    <br />
+    · <a href="https://glasskydd.netlify.app/" target="_blank">View Demo</a>
+    ·
+    <a href="https://github.com/cimp08/ecommerce-be" target="_blank">Backend GitHub repo</a>
+    ·
+    <a href="https://www.figma.com/file/uK1tRqiK8zJKoutFzgrMso/glasskydd?node-id=0%3A1" target="_blank">Figma WireFrames</a>
+    ·
+  </p>
+</p>
 
-- [General Information](#general-information)
-- [Getting Started](#getting-started)
-<!-- - [Goals](#goals) -->
-<!-- - [Page and Routes](#[page-and-routes]) -->
-<!-- - [Example](#example) -->
-<!-- - [Test](#test) -->
-<!-- - [Acknowledgements](#acknowledgements) -->
-- [Contact](#contact)
-<!-- - [License](#license) -->
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+      <li><a href="#deployment">Deployment</a></li>
+        <li><a href="#built-with">Built With</a></li>
+        <li><a href="#naming-conventions">Naming Conventions</a></li>
+        <li><a href="#code-conventions">Code Formating</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#requirements-specification">Requirements specification</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
 
-## General Information
+<!-- ABOUT THE PROJECT -->
 
-<!-- ### Live site
+## About The Project
 
-You can find live version here: [DoggyMatch](https://doggymatch.netlify.app/) -->
+The goal of this assignment was to create a e-commerce that uses the knowledge and skills required to go from an idea and concept phase to a complete application. The submission should demonstrate understanding of, application, and use of a RESTful API in node with JWT-based authentication with the MongoDB document database.
 
-### Figma
+### Built With
 
-You can find wireframes here: [Glasskydd.se](https://www.figma.com/file/uK1tRqiK8zJKoutFzgrMso/glasskydd?node-id=0%3A1)
+- [React.js](https://reactjs.org/)
+- [React Redux](https://react-redux.js.org/)
+- [React Bootstrap](https://react-bootstrap.github.io/)
+- [NodeJS](https://nodejs.org/en/)
+- [ExpressJS](https://expressjs.com/)
+- [MongoDB](https://www.mongodb.com/)
 
-### Built with
+### Deployment
 
-- [React](https://reactjs.org)
-- [Redux](https://redux.js.org)
+The backend is deployed with Render’s free plan that automatically spun down after 15 minutes of inactivity. When a new request for a free service comes in, Render spins it up again so it can process the request.
+
+This can cause a response delay of up to 30 seconds for the first request that comes in after a period of inactivity.
+
+### Naming Conventions
+
+| Name        | Example          | Usage                             |
+| ----------- | ---------------- | --------------------------------- |
+| kebab case  | is-not-a-dish    | style classes                     |
+| pascal case | AllInOneCapitals | components, jsx pages             |
+| camel case  | goesDownThenUp   | jsx variables, css files          |
+
+### Code Formating
+
+As per requirements using [provided guide](https://vicvijayakumar.com/blog/eslint-airbnb-style-guide-prettier).
+
+
+<!-- GETTING STARTED -->
 
 ## Getting Started
 
-1. Start by cloning the repository.
-2. Install npm dependencies in the root folder:
+### Installation
 
-```
-npm install
-```
+1. Clone the repo
+   ```sh
+   git clone https://github.com/cimp08/ecommerce-fe
+   ```
+2. Install NPM packages (In the client and server folders)
+   ```sh
+   npm install
+   ```
+3. Create .env 
+   ```JS
+   REACT_APP_API_URL=ENTER YOUR URL
+   ...
+   ```
+4. Run 
+   ```sh
+   npm start
+   ```
 
-3. Create a .env file in the root of the project.
+<!-- Users -->
 
-4. Start the react-server:
+## Requirements specification
 
-```
-npm start
-```
+<!-- Add some user stories -->
+### Non-functional requirements
+* The application must provide a RESTful API
+* The application must work in all modern browsers
+* The application must be responsive
 
-5. App runs locally on this server: http://localhost:3000/
+### Functional requirements
+* A user must be able to register an account
+* A user must be able to login to their account
+* A user must be able to search in the application
+* An administrative user must be able to log in to a basic dashboard and create/update/delete users
 
-<!-- ## Goals
+### Bonus requirements
+* An administrative user should be able to set permissions based on user roles
+* An administrative user should be able to create/read/update/delete user roles
+* An administrative user should be able to send out emails from the admin dashboard
 
-It seems that nowadays it is really hard to have a playmate or a walking buddy for your doggy. You might be thinking that an obvious choice could be family and friends dogs, but you need to be sure it is a good match. You want the best for your doggy. With our app we have a solution to that. We created an app where you can find the perfect match for your buddy. Our app allows your doggy to match with others based on gender or their interests and in the same time will ensure that playdates are fun for all involved. -->
+<!-- ROADMAP -->
 
-<!-- ## Page and Routes
+## Roadmap
 
-| Page                                                                                                             | Items                                                                                                                                                  |
-| ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| **Landing page** <br /> <br /> /                                                                                 | <br /> <br /> Start page                                                                                                                               |
-| **Login, signup, profile** <br /> <br /> /login <br /> /signup <br /> /profile <br /> /swipe <br /> /chat <br /> | <br /> <br /> <br /> create a user profile <br /> add all details about your doggy <br /> swipe on dogs <br /> place you can see and chat with matches | -->
+Fill in later ...
 
-<!-- ## Example
+<!-- LICENSE -->
 
-### Create doggy profile
+## License
 
-- You can create a doggy profile after you have an account. You can add all the details about your doggy.
+Distributed under the MIT License.
 
-### Matches
-
-- According to your doggy profile we find perfect matches.
-
-### Chating
-
-- You can chat now with your doggy playmate. -->
-
-<!-- ## Documentation
-
-- [Prototyping in Figma](https://www.figma.com/file/hEO9VUjNsFZXQOl84DlZQk/DoggyMatch?node-id=0%3A1)
-- [Projects GitHub](https://github.com/cimp08/team-2-frontend/projects) -->
-
-<!-- ## Test
-
-- We used Jest for testing to insert, update and delete a dog name. -->
-
-<!-- ## Acknowledgements
-
-- This project was inspired by Tinder -->
+<!-- CONTACT -->
 
 ## Contact
 
-Created by:
+Email - cemilulay@gmail.com
 
-[@CemilUlay](https://github.com/cimp08)
-
-
-## General Information
-
-- This repository interact with the backend part of Glasskydd.se. [Backend](https://github.com/cimp08/ecommerce-be)
-
-<!-- ## License
-
-Distributed under the [MIT](https://choosealicense.com/licenses/mit/) License.
-
-Feel free to contact us! -->
+LinkedIn: [Cemil Ülay](www.linkedin.com/in/cemilulay)
