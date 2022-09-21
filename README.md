@@ -40,6 +40,7 @@
       </ul>
     </li>
     <li><a href="#requirements-specification">Requirements specification</a></li>
+    <li><a href="#roadmap">Sitemap</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -124,6 +125,12 @@ As per requirements using [provided guide](https://vicvijayakumar.com/blog/eslin
 * An administrative user should be able to set permissions based on user roles
 * An administrative user should be able to create/read/update/delete user roles
 * An administrative user should be able to send out emails from the admin dashboard
+
+<!-- ROADMAP -->
+
+## Sitemap
+
+<img src="src/assets/img/sitemap.png" alt="sitemap">
 
 <!-- ROADMAP -->
 
