@@ -8,14 +8,14 @@
   <h3 align="center">Glasskydd E-commerce -MERN</h3>
 
   <p align="center">
-    Glasskydd is an ecommerce ...
+    This e-commerce has full featured shopping cart with PayPal payments. Product rating, reviews, product search, pagination. Admin area to manage customers, products and orders. Build with React, Redux, Node, Express and MongoDB.  
     <br />
     <br />
     · <a href="https://glasskydd.netlify.app/" target="_blank">View Demo</a>
     ·
-    <a href="https://github.com/cimp08/ecommerce-be" target="_blank">Backend GitHub repo</a>
+    <a href="https://github.com/cimp08/ecommerce-be" target="_blank">Backend GitHub Repository</a>
     ·
-    <a href="https://www.figma.com/file/uK1tRqiK8zJKoutFzgrMso/glasskydd?node-id=0%3A1" target="_blank">Figma WireFrames</a>
+    <a href="https://www.figma.com/file/uK1tRqiK8zJKoutFzgrMso/glasskydd?node-id=0%3A1" target="_blank">Figma Wire Frames</a>
     ·
   </p>
 </p>
@@ -40,7 +40,7 @@
       </ul>
     </li>
     <li><a href="#requirements-specification">Requirements specification</a></li>
-    <li><a href="#roadmap">Sitemap</a></li>
+    <li><a href="#sitemap">Sitemap</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
@@ -64,7 +64,7 @@ The goal of this assignment was to create a e-commerce that uses the knowledge a
 
 ### Deployment
 
-The backend is deployed with Render’s free plan that automatically spun down after 15 minutes of inactivity. When a new request for a free service comes in, Render spins it up again so it can process the request.
+Backend is deployed with Render’s free plan that automatically spun down after 15 minutes of inactivity. When a new request for a free service comes in, Render spins it up again so it can process the request.
 
 This can cause a response delay of up to 30 seconds for the first request that comes in after a period of inactivity.
 
