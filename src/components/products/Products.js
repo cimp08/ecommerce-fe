@@ -69,7 +69,7 @@ const Products = () => {
                                     onClick={() => setBrand('Huawei')}
                                     className={brand === 'Huawei' ? 'active' : 'brand-btn'}
                                 >
-                                    Huwaei
+                                    Huawei
                                 </Link>
                             </li>
                             <li>
