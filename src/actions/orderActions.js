@@ -110,7 +110,7 @@ export const payOrder = (id, paymentResult) => async (dispatch, getState) => {
             },
         }
         const { data } = await axios.put(
-            `${process.env.REACT_APP_API_URL}/orders/${id}/pay`,
+            `${process.env.REACT_APP_API_URL}/api/orders/${id}/pay`,
             paymentResult,
             config
         )
