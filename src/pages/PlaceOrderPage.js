@@ -8,6 +8,8 @@ import Message from '../components/message/Message'
 import CheckoutSteps from '../components/checkoutSteps/CheckoutSteps'
 import { createOrder } from '../actions/orderActions'
 import './placeOrderPage.css'
+import { USER_DETAILS_RESET } from '../constans/userConstans'
+import { ORDER_CREATE_RESET } from '../constans/orderConstans'
 
 // eslint-disable-next-line react/function-component-definition
 const PlaceOrderPage = () => {
@@ -41,6 +43,8 @@ const PlaceOrderPage = () => {
         if (success) {
             // eslint-disable-next-line no-underscore-dangle
             navigate(`/order/${order._id}`)
+            dispatch({ type: USER_DETAILS_RESET })
+            dispatch({ type: ORDER_CREATE_RESET })
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [navigate, success])
@@ -63,7 +67,7 @@ const PlaceOrderPage = () => {
         <div className="section-place-order">
             <div className="place-order-container">
                 <CheckoutSteps step1 step2 step3 step4 />
-                <h2 className="my-5">Avsluta betalning</h2>
+                <h2 className="my-5">Avsluta beställning</h2>
                 <Row>
                     <Col md={8}>
                         <ListGroup>
@@ -170,7 +174,7 @@ const PlaceOrderPage = () => {
                                         disabled={cart.cartItems === 0}
                                         onClick={placeOrderHandler}
                                     >
-                                        Lägg Beställning
+                                        Avsluta Beställning
                                     </Button>
                                 </ListGroup.Item>
                             </ListGroup>
