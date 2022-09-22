@@ -160,8 +160,8 @@ const ProfilePage = () => {
                                             )}
                                         </td>
                                         <td>
-                                            {order.isDelived ? (
-                                                order.isDelived.substring(0, 10)
+                                            {order.isDelivered ? (
+                                                order.deliveredAt.substring(0, 10)
                                             ) : (
                                                 <IconContext.Provider
                                                     // eslint-disable-next-line react/jsx-no-constructed-context-values
