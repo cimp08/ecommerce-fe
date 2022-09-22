@@ -15,6 +15,7 @@ import Loader from '../components/loader/Loader'
 import { getUserDetails, updateUserProfile } from '../actions/userAction'
 import { listMyOrders } from '../actions/orderActions'
 import './profilePage.css'
+import { USER_UPDATE_PROFILE_RESET } from '../constans/userConstans'
 
 // eslint-disable-next-line react/function-component-definition
 const ProfilePage = () => {
@@ -43,7 +44,8 @@ const ProfilePage = () => {
         if (!userInfo) {
             navigate('/login')
         } else {
-            if (!user.name) {
+            if (!user || !user.name || success) {
+                dispatch({ type: USER_UPDATE_PROFILE_RESET })
                 dispatch(getUserDetails('profile'))
                 dispatch(listMyOrders())
             } else {
@@ -51,7 +53,7 @@ const ProfilePage = () => {
                 setEmail(user.email)
             }
         }
-    }, [dispatch, navigate, userInfo, user])
+    }, [dispatch, navigate, userInfo, user, success])
 
     const submitHandler = (e) => {
         e.preventDefault()
