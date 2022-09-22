@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable no-undef */
 /* eslint-disable no-underscore-dangle */
@@ -62,7 +63,7 @@ const OrderPage = () => {
             document.body.appendChild(script)
         }
 
-        if (!order || successPay || successDeliver) {
+        if (!order || successPay || successDeliver || order._id !== id) {
             dispatch({ type: ORDER_PAY_RESET })
             dispatch({ type: ORDER_DELIVER_RESET })
             dispatch(getOrderDetails(id))
@@ -73,7 +74,7 @@ const OrderPage = () => {
                 setSdkReady(true)
             }
         }
-    }, [dispatch, id, successPay, order, successDeliver, userInfo, navigate])
+    }, [dispatch, id, successPay, order, successDeliver])
 
     const successPaymentHandler = (paymentResult) => {
         dispatch(payOrder(id, paymentResult))
@@ -81,8 +82,6 @@ const OrderPage = () => {
 
     const deliverHandler = () => {
         dispatch(deliverOrder(order))
-        // eslint-disable-next-line no-console
-        console.log(order)
     }
 
     return loading ? (
@@ -113,7 +112,7 @@ const OrderPage = () => {
                                 </p>
                                 {order.isDelivered ? (
                                     <Message variant="success">
-                                        Levererad: {order.deliveredAt}.
+                                        Levererad: {order.deliveredAt.substring(0, 10)}.
                                     </Message>
                                 ) : (
                                     <Message variant="danger">Inte levererad.</Message>
@@ -124,7 +123,9 @@ const OrderPage = () => {
                                 <p className="mt-3 fs-2 text-uppercase">Betalning</p>
                                 <p>{order.paymentMethod}</p>
                                 {order.isPaid ? (
-                                    <Message variant="success">Betald: {order.paidAt}.</Message>
+                                    <Message variant="success">
+                                        Betald: {order.paidAt.substring(0, 10)}.
+                                    </Message>
                                 ) : (
                                     <Message variant="danger">Ingen betalning.</Message>
                                 )}
