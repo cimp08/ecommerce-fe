@@ -11,7 +11,23 @@
     box-shadow: 1rem 1rem 1.5rem rgba(0, 0, 0, 0.05);
 }
 
-.flex {
-    display: flex;
-    justify-content: space-around;
+.myorders-section {
+    margin-top: 2rem;
+    overflow: auto;
+}
+
+.myorders-section .min-width {
+    min-width:11rem;
+}
+
+.myorders-section td {
+    padding: 1rem
+}
+
+/* ------ MEDIA QUERIES MOBILES ------ */
+
+@media screen and (max-width: 480px) {
+.section-profile .center {
+    width: 30rem;
+}
 }

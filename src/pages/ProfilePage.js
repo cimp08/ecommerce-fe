@@ -6,7 +6,7 @@
 import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { Table, Button } from 'react-bootstrap'
+import { Table } from 'react-bootstrap'
 import { LinkContainer } from 'react-router-bootstrap'
 import { IconContext } from 'react-icons'
 import { BsXLg } from 'react-icons/bs'
@@ -65,129 +65,129 @@ const ProfilePage = () => {
     }
 
     return (
-        <div className="section-profile">
-            <div className="flex">
-                <div className="center">
-                    <h2>Min Profil</h2>
-                    {message && <Message variant="danger">{message}</Message>}
-                    {error && <Message variant="danger">{error}</Message>}
-                    {success && <Message variant="success">Konto uppdaterat</Message>}
-                    {loading && <Loader />}
-                    <form onSubmit={submitHandler}>
-                        <div className="txt_field" controlId="name">
-                            <input
-                                id="name"
-                                type="name"
-                                value={name}
-                                onChange={(e) => setName(e.target.value)}
-                                required
-                            ></input>
-                            <span></span>
-                            <label>Namn</label>
-                        </div>
-                        <div className="txt_field" controlId="email">
-                            <input
-                                id="email"
-                                type="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                required
-                            ></input>
-                            <span></span>
-                            <label>E-post</label>
-                        </div>
-                        <div className="txt_field" controlId="password">
-                            <input
-                                id="password"
-                                type="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                required
-                            ></input>
-                            <span></span>
-                            <label>
-                                Nytt lösenord <small>*(frivilligt)</small>
-                            </label>
-                        </div>
-                        <div className="txt_field" controlId="confirmPassword">
-                            <input
-                                id="confirmPassword"
-                                type="password"
-                                value={confirmPassword}
-                                onChange={(e) => setConfirmPassword(e.target.value)}
-                                required
-                            ></input>
-                            <span></span>
-                            <label>Bekräfta lösenord</label>
-                        </div>
-                        <button type="submit">Uppdatera konto</button>
-                    </form>
-                </div>
-                <div className="myorders-section">
-                    <h2>Mina Ordrar</h2>
-                    {loadingOrders ? (
-                        <Loader />
-                    ) : errorOrders ? (
-                        <Message variant="danger">{errorOrders}</Message>
-                    ) : (
-                        <Table striped bordered hover responsive className="table-sm">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>DATE</th>
-                                    <th>TOTAL</th>
-                                    <th>PAID</th>
-                                    <th>DELIVERED</th>
-                                    <th></th>
+        <div className="section-profile d-flex justify-content-around flex-wrap">
+            <div className="center">
+                <h2>Min Profil</h2>
+                {message && <Message variant="danger">{message}</Message>}
+                {error && <Message variant="danger">{error}</Message>}
+                {success && <Message variant="success">Konto uppdaterat</Message>}
+                {loading && <Loader />}
+                <form onSubmit={submitHandler}>
+                    <div className="txt_field" controlId="name">
+                        <input
+                            id="name"
+                            type="name"
+                            value={name}
+                            onChange={(e) => setName(e.target.value)}
+                            required
+                        ></input>
+                        <span></span>
+                        <label>Namn</label>
+                    </div>
+                    <div className="txt_field" controlId="email">
+                        <input
+                            id="email"
+                            type="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                        ></input>
+                        <span></span>
+                        <label>E-post</label>
+                    </div>
+                    <div className="txt_field" controlId="password">
+                        <input
+                            id="password"
+                            type="password"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                        ></input>
+                        <span></span>
+                        <label>
+                            Nytt lösenord <small>*(frivilligt)</small>
+                        </label>
+                    </div>
+                    <div className="txt_field" controlId="confirmPassword">
+                        <input
+                            id="confirmPassword"
+                            type="password"
+                            value={confirmPassword}
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            required
+                        ></input>
+                        <span></span>
+                        <label>Bekräfta lösenord</label>
+                    </div>
+                    <button type="submit" className="btn-black w-100">
+                        Uppdatera konto
+                    </button>
+                </form>
+            </div>
+            <div className="myorders-section">
+                <h2 className="text-center mb-5">Mina Ordrar</h2>
+                {loadingOrders ? <Loader /> : null}
+                {errorOrders ? <Message variant="danger">{errorOrders}</Message> : null}
+                {orders && orders.length ? (
+                    <Table striped bordered hover className="table-sm">
+                        <thead>
+                            <tr>
+                                <th>Order nummer</th>
+                                <th className="min-width">Datum</th>
+                                <th className="min-width">Totalt</th>
+                                <th>Betald</th>
+                                <th>Levererad</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {orders.map((order) => (
+                                <tr key={order._id}>
+                                    <td>{order._id}</td>
+                                    <td>{order.createdAt.substring(0, 10)}</td>
+                                    <td>{order.totalPrice} kr</td>
+                                    <td>
+                                        {order.isPaid ? (
+                                            order.paidAt.substring(0, 10)
+                                        ) : (
+                                            <IconContext.Provider
+                                                // eslint-disable-next-line react/jsx-no-constructed-context-values
+                                                value={{
+                                                    color: 'red',
+                                                }}
+                                            >
+                                                <BsXLg />
+                                            </IconContext.Provider>
+                                        )}
+                                    </td>
+                                    <td>
+                                        {order.isDelivered ? (
+                                            order.deliveredAt.substring(0, 10)
+                                        ) : (
+                                            <IconContext.Provider
+                                                // eslint-disable-next-line react/jsx-no-constructed-context-values
+                                                value={{
+                                                    color: 'red',
+                                                }}
+                                            >
+                                                <BsXLg />
+                                            </IconContext.Provider>
+                                        )}
+                                    </td>
+                                    <td>
+                                        <LinkContainer to={`/order/${order._id}`}>
+                                            <button type="button" className="link-black">
+                                                Detaljer
+                                            </button>
+                                        </LinkContainer>
+                                    </td>
                                 </tr>
-                            </thead>
-                            <tbody>
-                                {orders.map((order) => (
-                                    <tr key={order._id}>
-                                        <td>{order._id}</td>
-                                        <td>{order.createdAt.substring(0, 10)}</td>
-                                        <td>{order.totalPrice} kr</td>
-                                        <td>
-                                            {order.isPaid ? (
-                                                order.paidAt.substring(0, 10)
-                                            ) : (
-                                                <IconContext.Provider
-                                                    // eslint-disable-next-line react/jsx-no-constructed-context-values
-                                                    value={{
-                                                        color: 'red',
-                                                    }}
-                                                >
-                                                    <BsXLg />
-                                                </IconContext.Provider>
-                                            )}
-                                        </td>
-                                        <td>
-                                            {order.isDelivered ? (
-                                                order.deliveredAt.substring(0, 10)
-                                            ) : (
-                                                <IconContext.Provider
-                                                    // eslint-disable-next-line react/jsx-no-constructed-context-values
-                                                    value={{
-                                                        color: 'red',
-                                                    }}
-                                                >
-                                                    <BsXLg />
-                                                </IconContext.Provider>
-                                            )}
-                                        </td>
-                                        <td>
-                                            <LinkContainer to={`/order/${order._id}`}>
-                                                <Button className="btn-lg" variant="light">
-                                                    Detaljer
-                                                </Button>
-                                            </LinkContainer>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </Table>
-                    )}
-                </div>
+                            ))}
+                        </tbody>
+                    </Table>
+                ) : (
+                    <p className="mt-5">Inga tidigare ordrar</p>
+                )}
             </div>
         </div>
     )
