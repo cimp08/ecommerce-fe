@@ -101,7 +101,6 @@ const ProfilePage = () => {
                             type="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            required
                         ></input>
                         <span></span>
                         <label>
@@ -114,7 +113,6 @@ const ProfilePage = () => {
                             type="password"
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
-                            required
                         ></input>
                         <span></span>
                         <label>Bekräfta lösenord</label>
@@ -186,7 +184,7 @@ const ProfilePage = () => {
                         </tbody>
                     </Table>
                 ) : (
-                    <p className="mt-5">Inga tidigare ordrar</p>
+                    <Message variant="danger">0 KÖP</Message>
                 )}
             </div>
         </div>

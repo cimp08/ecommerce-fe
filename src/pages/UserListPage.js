@@ -2,13 +2,12 @@
 /* eslint-disable no-nested-ternary */
 import React, { useEffect } from 'react'
 import { LinkContainer } from 'react-router-bootstrap'
-import { Table, Button } from 'react-bootstrap'
+import { Table } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { IconContext } from 'react-icons'
-import { BsXLg, BsCheck } from 'react-icons/bs'
-import { BiEdit } from 'react-icons/bi'
-import { FaTrash } from 'react-icons/fa'
+import { BsXLg, BsCheckLg } from 'react-icons/bs'
+import { FaEdit, FaTrash } from 'react-icons/fa'
 import Message from '../components/message/Message'
 import Loader from '../components/loader/Loader'
 import { listUsers, deleteUser } from '../actions/userAction'
@@ -44,73 +43,80 @@ const UserListPage = () => {
     }
 
     return (
-        <div className="container userlist__section">
-            <h2>Users</h2>
-            {loading ? (
-                <Loader />
-            ) : error ? (
-                <Message variant="danger">{error}</Message>
-            ) : (
-                <Table striped bordered hover responsive className="table-sm">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>NAMN</th>
-                            <th>EPOST</th>
-                            <th>ADMIN</th>
-                            <th>ID</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {users.map((user) => (
-                            <tr key={user._id}>
-                                <td>{user._id}</td>
-                                <td>{user.name}</td>
-                                <td>
-                                    <a href={`mailto:${user.email}`}>{user.email}</a>
-                                </td>
-                                <td>
-                                    {user.isAdmin ? (
-                                        <IconContext.Provider
-                                            // eslint-disable-next-line react/jsx-no-constructed-context-values
-                                            value={{
-                                                color: 'green',
-                                            }}
-                                        >
-                                            <BsCheck />
-                                        </IconContext.Provider>
-                                    ) : (
-                                        <IconContext.Provider
-                                            // eslint-disable-next-line react/jsx-no-constructed-context-values
-                                            value={{
-                                                color: 'red',
-                                            }}
-                                        >
-                                            <BsXLg />
-                                        </IconContext.Provider>
-                                    )}
-                                </td>
-                                <td>
-                                    <LinkContainer to={`/admin/user/${user._id}/edit`}>
-                                        <Button variant="light" className="btn-lg">
-                                            <BiEdit />
-                                        </Button>
-                                    </LinkContainer>
-                                    <Button
-                                        variant="danger"
-                                        className="btn-lg"
-                                        onClick={() => {
-                                            deleteHandler(user._id)
-                                        }}
-                                    >
-                                        <FaTrash />
-                                    </Button>
-                                </td>
+        <div className="section-userlist">
+            <div className="userlist">
+                <h2 className="text-center mb-5">Användare</h2>
+                {loading ? (
+                    <Loader />
+                ) : error ? (
+                    <Message variant="danger">{error}</Message>
+                ) : (
+                    <Table striped bordered hover responsive className="table-sm">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>NAMN</th>
+                                <th>EPOST</th>
+                                <th>ADMIN</th>
+                                <th>ACTION</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </Table>
-            )}
+                        </thead>
+                        <tbody>
+                            {users.map((user) => (
+                                <tr key={user._id}>
+                                    <td>{user._id}</td>
+                                    <td className="name">{user.name}</td>
+                                    <td>
+                                        <a className="link-black" href={`mailto:${user.email}`}>
+                                            {user.email}
+                                        </a>
+                                    </td>
+                                    <td>
+                                        {user.isAdmin ? (
+                                            <IconContext.Provider
+                                                // eslint-disable-next-line react/jsx-no-constructed-context-values
+                                                value={{
+                                                    color: 'green',
+                                                }}
+                                            >
+                                                <BsCheckLg />
+                                            </IconContext.Provider>
+                                        ) : (
+                                            <IconContext.Provider
+                                                // eslint-disable-next-line react/jsx-no-constructed-context-values
+                                                value={{
+                                                    color: 'red',
+                                                }}
+                                            >
+                                                <BsXLg />
+                                            </IconContext.Provider>
+                                        )}
+                                    </td>
+                                    <td className="action">
+                                        <LinkContainer to={`/admin/user/${user._id}/edit`}>
+                                            <button
+                                                type="button"
+                                                className="me-5 fs-1 bg-transparent text-primary"
+                                            >
+                                                <FaEdit />
+                                            </button>
+                                        </LinkContainer>
+                                        <button
+                                            className="fs-1 bg-transparent text-danger"
+                                            type="button"
+                                            onClick={() => {
+                                                deleteHandler(user._id)
+                                            }}
+                                        >
+                                            <FaTrash />
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </Table>
+                )}
+            </div>
         </div>
     )
 }
