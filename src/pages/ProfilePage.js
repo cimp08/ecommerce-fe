@@ -184,7 +184,7 @@ const ProfilePage = () => {
                         </tbody>
                     </Table>
                 ) : (
-                    <Message variant="danger">0 KÖP</Message>
+                    <Message variant="danger">Inte handlat tidigare</Message>
                 )}
             </div>
         </div>

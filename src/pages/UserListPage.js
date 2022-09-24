@@ -4,9 +4,9 @@ import React, { useEffect } from 'react'
 import { LinkContainer } from 'react-router-bootstrap'
 import { Table } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { IconContext } from 'react-icons'
-import { BsXLg, BsCheckLg } from 'react-icons/bs'
+import { BsXLg, BsCheckLg, BsPlus } from 'react-icons/bs'
 import { FaEdit, FaTrash } from 'react-icons/fa'
 import Message from '../components/message/Message'
 import Loader from '../components/loader/Loader'
@@ -45,7 +45,16 @@ const UserListPage = () => {
     return (
         <div className="section-userlist">
             <div className="userlist">
-                <h2 className="text-center mb-5">Användare</h2>
+                <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+                    <h2>Användare</h2>
+                    <Link
+                        className="btn-black my-3 text-decoration-none"
+                        type="button"
+                        to="/admin/user/create"
+                    >
+                        <BsPlus /> Skapa Användare
+                    </Link>
+                </div>
                 {loading ? (
                     <Loader />
                 ) : error ? (

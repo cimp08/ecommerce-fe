@@ -7,10 +7,11 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { BsArrowLeft } from 'react-icons/bs'
 import Message from '../components/message/Message'
 import Loader from '../components/loader/Loader'
 import { listProductDetails, updateProduct } from '../actions/productActions'
-import './registerPage.css'
+import './productEditPage.css'
 import { PRODUCT_UPDATE_RESET } from '../constans/productConstans'
 
 // eslint-disable-next-line react/function-component-definition
@@ -99,12 +100,15 @@ const ProductEditPage = () => {
     }
 
     return (
-        <div className="section-register">
-            <Link to="/admin/productlist" className="btn btn-light">
-                Tillbaka
-            </Link>
+        <div className="section-product-edit">
+            <div className="mb-5 ms-5">
+                <Link to="/admin/productlist" className="link-black text-center">
+                    <BsArrowLeft className="icon-back" />
+                    Tillbaka
+                </Link>
+            </div>
             <div className="center">
-                <h2>Editera Produkt</h2>
+                <h2>Uppdatera Produkt</h2>
                 {loadingUpdate && <Loader />}
                 {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
                 {loading ? (
@@ -200,7 +204,9 @@ const ProductEditPage = () => {
                             <span></span>
                             <label>Beskrivning</label>
                         </div>
-                        <button type="submit">Uppdatera</button>
+                        <button className="btn-black w-100" type="submit">
+                            Uppdatera
+                        </button>
                     </form>
                 )}
             </div>

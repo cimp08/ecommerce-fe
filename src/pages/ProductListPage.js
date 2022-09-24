@@ -3,7 +3,7 @@
 /* eslint-disable no-nested-ternary */
 import React, { useEffect } from 'react'
 import { LinkContainer } from 'react-router-bootstrap'
-import { Table, Button, Row, Col } from 'react-bootstrap'
+import { Table } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router-dom'
 import { BiEdit } from 'react-icons/bi'
@@ -14,7 +14,7 @@ import Loader from '../components/loader/Loader'
 import Paginate from '../components/paginate/Paginate'
 import { listProducts, deleteProduct, createProduct } from '../actions/productActions'
 import { PRODUCT_CREATE_RESET } from '../constans/productConstans'
-import './userListPage.css'
+import './productListPage.css'
 
 // eslint-disable-next-line react/function-component-definition
 const ProductListPage = () => {
@@ -66,68 +66,73 @@ const ProductListPage = () => {
     }
 
     return (
-        <div className="container">
-            <Row className="align-items-center">
-                <Col>
-                    <h2>Products</h2>
-                </Col>
-                <Col className="text-right">
-                    <Button className="my-3" onClick={createProductHandler}>
-                        <BsPlus /> Create Product
-                    </Button>
-                </Col>
-            </Row>
-            {loadingDelete && <Loader />}
-            {errorDelete && <Message variant="danger">{errorDelete}</Message>}
-            {loadingCreate && <Loader />}
-            {errorCreate && <Message variant="danger">{errorCreate}</Message>}
-            {loading ? (
-                <Loader />
-            ) : error ? (
-                <Message variant="danger">{error}</Message>
-            ) : (
-                <>
-                    <Table striped bordered hover responsive className="table-sm">
-                        <thead>
-                            <tr>
-                                <th>ID</th>
-                                <th>MODELL</th>
-                                <th>PRIS</th>
-                                <th>KATEGORI</th>
-                                <th>MÄRKE</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {products.map((product) => (
-                                <tr key={product._id}>
-                                    <td>{product._id}</td>
-                                    <td>{product.name}</td>
-                                    <td>{product.price} kr</td>
-                                    <td>{product.category}</td>
-                                    <td>{product.brand}</td>
-                                    <td>
-                                        <LinkContainer to={`/admin/product/${product._id}/edit`}>
-                                            <Button variant="light" className="btn-lg">
-                                                <BiEdit />
-                                            </Button>
-                                        </LinkContainer>
-                                        <Button
-                                            variant="danger"
-                                            className="btn-lg"
-                                            onClick={() => {
-                                                deleteHandler(product._id)
-                                            }}
-                                        >
-                                            <FaTrash />
-                                        </Button>
-                                    </td>
+        <div className="section-productlist">
+            <div className="productlist">
+                <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+                    <h2>Produkter</h2>
+                    <button className="btn-black my-3" type="button" onClick={createProductHandler}>
+                        <BsPlus /> Skapa Produkt
+                    </button>
+                </div>
+
+                {loadingDelete && <Loader />}
+                {errorDelete && <Message variant="danger">{errorDelete}</Message>}
+                {loadingCreate && <Loader />}
+                {errorCreate && <Message variant="danger">{errorCreate}</Message>}
+                {loading ? (
+                    <Loader />
+                ) : error ? (
+                    <Message variant="danger">{error}</Message>
+                ) : (
+                    <>
+                        <Table striped bordered hover responsive className="table-sm">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>MODELL</th>
+                                    <th>PRIS</th>
+                                    <th>KATEGORI</th>
+                                    <th>MÄRKE</th>
+                                    <th>ACTION</th>
                                 </tr>
-                            ))}
-                        </tbody>
-                    </Table>
-                    <Paginate pages={pages} page={page} isAdmin={true} />
-                </>
-            )}
+                            </thead>
+                            <tbody>
+                                {products.map((product) => (
+                                    <tr key={product._id}>
+                                        <td>{product._id}</td>
+                                        <td className="name">{product.name}</td>
+                                        <td className="price-list">{product.price} kr</td>
+                                        <td>{product.category}</td>
+                                        <td>{product.brand}</td>
+                                        <td className="action">
+                                            <LinkContainer
+                                                to={`/admin/product/${product._id}/edit`}
+                                            >
+                                                <button
+                                                    className="me-5 fs-1 bg-transparent text-primary"
+                                                    type="button"
+                                                >
+                                                    <BiEdit />
+                                                </button>
+                                            </LinkContainer>
+                                            <button
+                                                className="fs-1 bg-transparent text-danger"
+                                                type="button"
+                                                onClick={() => {
+                                                    deleteHandler(product._id)
+                                                }}
+                                            >
+                                                <FaTrash />
+                                            </button>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+                        </Table>
+                        <Paginate pages={pages} page={page} isAdmin={true} />
+                    </>
+                )}
+            </div>
         </div>
     )
 }
