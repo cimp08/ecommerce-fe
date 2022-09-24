@@ -19,6 +19,7 @@ import ProductListPage from './pages/ProductListPage'
 import ProductEditPage from './pages/ProductEditPage'
 import OrderListPage from './pages/OrderListPage'
 import ScrollToTop from './components/scrollToTop/ScrollToTop'
+import UserCreatePage from './pages/UserCreatePage'
 
 // eslint-disable-next-line react/function-component-definition
 const App = () => {
@@ -39,6 +40,7 @@ const App = () => {
                 <Route path="/cart" element={<CartPage />} />
                 <Route path="/admin/userlist" element={<UserListPage />} />
                 <Route path="/admin/user/:id/edit" element={<UserEditPage />} />
+                <Route path="/admin/user/create" element={<UserCreatePage />} />
                 <Route path="/admin/productlist" element={<ProductListPage />} exact />
                 <Route path="/admin/productlist/:pageNumber" element={<ProductListPage />} exact />
                 <Route path="/admin/product/:id/edit" element={<ProductEditPage />} />
