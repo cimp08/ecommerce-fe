@@ -6,7 +6,7 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { PayPalButton } from 'react-paypal-button-v2'
-import { Row, Col, ListGroup, Image, Card, Button } from 'react-bootstrap'
+import { Row, Col, ListGroup, Image, Card } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams, useNavigate } from 'react-router-dom'
 import Message from '../components/message/Message'
@@ -234,13 +234,13 @@ const OrderPage = () => {
                                     order.isPaid &&
                                     !order.isDelivered && (
                                         <ListGroup.Item>
-                                            <Button
+                                            <button
                                                 type="button"
-                                                className="btn btn-block"
+                                                className="btn-black w-100 mb-3"
                                                 onClick={deliverHandler}
                                             >
                                                 Ändra till levererad
-                                            </Button>
+                                            </button>
                                         </ListGroup.Item>
                                     )}
                             </ListGroup>
