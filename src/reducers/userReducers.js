@@ -1,6 +1,10 @@
 /* eslint-disable default-param-last */
 /* eslint-disable import/prefer-default-export */
 import {
+    USER_CREATE_FAIL,
+    USER_CREATE_REQUEST,
+    USER_CREATE_RESET,
+    USER_CREATE_SUCCESS,
     USER_DELETE_FAIL,
     USER_DELETE_REQUEST,
     USER_DELETE_SUCCESS,
@@ -99,6 +103,21 @@ export const userListReducer = (state = { users: [] }, action) => {
             return { loading: false, error: action.payload }
         case USER_LIST_RESET:
             return { users: [] }
+        default:
+            return state
+    }
+}
+
+export const userCreateReducer = (state = { user: {} }, action) => {
+    switch (action.type) {
+        case USER_CREATE_REQUEST:
+            return { loading: true }
+        case USER_CREATE_SUCCESS:
+            return { loading: false, success: true }
+        case USER_CREATE_FAIL:
+            return { loading: false, error: action.payload }
+        case USER_CREATE_RESET:
+            return { user: {} }
         default:
             return state
     }
