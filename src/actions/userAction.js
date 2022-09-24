@@ -26,6 +26,9 @@ import {
     USER_UPDATE_REQUEST,
     USER_UPDATE_SUCCESS,
     USER_UPDATE_FAIL,
+    USER_CREATE_REQUEST,
+    USER_CREATE_SUCCESS,
+    USER_CREATE_FAIL,
 } from '../constans/userConstans'
 import { ORDER_MY_LIST_RESET } from '../constans/orderConstans'
 
@@ -208,6 +211,43 @@ export const listUsers = () => async (dispatch, getState) => {
     } catch (error) {
         dispatch({
             type: USER_LIST_FAIL,
+            payload:
+                error.response && error.response.data.message
+                    ? error.response.data.message
+                    : error.message,
+        })
+    }
+}
+
+export const createUser = (name, email, password, isAdmin) => async (dispatch, getState) => {
+    try {
+        dispatch({
+            type: USER_CREATE_REQUEST,
+        })
+
+        const {
+            userLogin: { userInfo },
+        } = getState()
+
+        const config = {
+            headers: {
+                'Content-type': 'application/json',
+                Authorization: `Bearer ${userInfo.token}`,
+            },
+        }
+
+        await axios.post(
+            `${process.env.REACT_APP_API_URL}/api/users/admin`,
+            { name, email, password, isAdmin },
+            config
+        )
+
+        dispatch({
+            type: USER_CREATE_SUCCESS,
+        })
+    } catch (error) {
+        dispatch({
+            type: USER_CREATE_FAIL,
             payload:
                 error.response && error.response.data.message
                     ? error.response.data.message
