@@ -11,7 +11,7 @@ const Hero = () => {
                 <div className="hero-section-product">
                     <div className="hero-section-text">
                         <h1>glasskydd 3HD</h1>
-                        <h3>iphone 13</h3>
+                        <h3>iphone 13 mini</h3>
                         <p>Hitta det perfekta skyddet för din mobil.</p>
                     </div>
                     <img className="hero-section-img" src={HERO} alt="iphone 13" />
@@ -22,7 +22,7 @@ const Hero = () => {
                             <span>märke</span> apple
                         </li>
                         <li>
-                            <span>model</span> iphone 13
+                            <span>model</span> iphone 13 mini
                         </li>
                         <li>
                             <span>färg</span> transparent
@@ -31,7 +31,10 @@ const Hero = () => {
                             <span>pris</span> 69:-
                         </li>
                         <li>
-                            <Link to="/" className="text-decoration-none">
+                            <Link
+                                to="/product/632c55f725c2b5b03294153d"
+                                className="text-decoration-none"
+                            >
                                 lägg till
                             </Link>
                         </li>
