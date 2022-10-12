@@ -1,0 +1,9 @@
+.section-notfound {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 5rem 2rem ;
+    background: radial-gradient(70.02% 276.03% at 70.02% 54.72%, #f5f5f5 33.43%, #e5e5e5 100%);
+}
