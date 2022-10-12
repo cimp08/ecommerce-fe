@@ -20,6 +20,7 @@ import ProductEditPage from './pages/ProductEditPage'
 import OrderListPage from './pages/OrderListPage'
 import ScrollToTop from './components/scrollToTop/ScrollToTop'
 import UserCreatePage from './pages/UserCreatePage'
+import NotFound from './pages/NotFound'
 
 // eslint-disable-next-line react/function-component-definition
 const App = () => {
@@ -49,6 +50,7 @@ const App = () => {
                 <Route path="/page/:pageNumber" element={<HomePage />} exact />
                 <Route path="/search/:keyword/page/:pageNumber" element={<HomePage />} exact />
                 <Route path="/" element={<HomePage />} exact />
+                <Route path="*" element={<NotFound />} />
             </Routes>
             <Footer />
         </Router>
