@@ -97,7 +97,7 @@ As per requirements using [provided guide](https://vicvijayakumar.com/blog/eslin
    ```
 3. Create .env 
    ```JS
-   REACT_APP_API_URL=ENTER YOUR URL
+   REACT_APP_API_URL = http://localhost:8000
    ...
    ```
 4. Run 
