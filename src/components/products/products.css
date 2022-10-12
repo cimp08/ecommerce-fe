@@ -51,6 +51,11 @@
     padding: 5rem 0;
 }
 
+.products-section h3 {
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
 .products-section-products {
     display: grid;
     grid-template-columns: repeat(auto-fill, 25.6rem);
