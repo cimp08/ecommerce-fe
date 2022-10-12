@@ -5,6 +5,7 @@ import { Link, useSearchParams, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/message/Message'
 import Loader from '../components/loader/Loader'
+import Meta from '../components/meta/Meta'
 import { register } from '../actions/userAction'
 import './registerPage.css'
 
@@ -41,6 +42,7 @@ const RegisterPage = () => {
 
     return (
         <div className="section-register">
+            <Meta title="Skapa konto" />
             <div className="center">
                 <h2>Skapa konto</h2>
                 {message && <Message variant="danger">{message}</Message>}

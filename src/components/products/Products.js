@@ -5,11 +5,13 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useParams } from 'react-router-dom'
 import './products.css'
+import { BsArrowLeft } from 'react-icons/bs'
 import Card from '../card/Card'
 import Message from '../message/Message'
 import Loader from '../loader/Loader'
 import Paginate from '../paginate/Paginate'
 import { listProducts } from '../../actions/productActions'
+import Meta from '../meta/Meta'
 
 // eslint-disable-next-line react/function-component-definition
 const Products = () => {
@@ -88,8 +90,12 @@ const Products = () => {
                     <h2 className="text-center">{brand}</h2>
                 ) : (
                     <>
-                        <Link to="/">Tillbaka</Link>
-                        <h3>Sökresultat för: {keyword}</h3>
+                        <Meta title="Sök" />
+                        <Link className="link-black " to="/">
+                            <BsArrowLeft className="icon-back" />
+                            Tillbaka
+                        </Link>
+                        <h3 className="my-5">Sökresultat för: {keyword}</h3>
                     </>
                 )}
                 {!loading && products.length === 0 && (

@@ -10,6 +10,7 @@ import { createOrder } from '../actions/orderActions'
 import './placeOrderPage.css'
 import { USER_DETAILS_RESET } from '../constans/userConstans'
 import { ORDER_CREATE_RESET } from '../constans/orderConstans'
+import Meta from '../components/meta/Meta'
 
 // eslint-disable-next-line react/function-component-definition
 const PlaceOrderPage = () => {
@@ -65,6 +66,7 @@ const PlaceOrderPage = () => {
 
     return (
         <div className="section-place-order">
+            <Meta title="Beställning" />
             <div className="place-order-container">
                 <CheckoutSteps step1 step2 step3 step4 />
                 <h2 className="my-5">Avsluta beställning</h2>

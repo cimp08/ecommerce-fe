@@ -13,6 +13,7 @@ import Loader from '../components/loader/Loader'
 import { listProductDetails, updateProduct } from '../actions/productActions'
 import './productEditPage.css'
 import { PRODUCT_UPDATE_RESET } from '../constans/productConstans'
+import Meta from '../components/meta/Meta'
 
 // eslint-disable-next-line react/function-component-definition
 const ProductEditPage = () => {
@@ -101,6 +102,7 @@ const ProductEditPage = () => {
 
     return (
         <div className="section-product-edit">
+            <Meta title="Admin | Produkter" />
             <div className="mb-5 ms-5">
                 <Link to="/admin/productlist" className="link-black text-center">
                     <BsArrowLeft className="icon-back" />

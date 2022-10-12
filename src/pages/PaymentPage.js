@@ -7,6 +7,7 @@ import { Form, Col } from 'react-bootstrap'
 import { savePaymentMethod } from '../actions/cartActions'
 import CheckoutSteps from '../components/checkoutSteps/CheckoutSteps'
 import './paymentPage.css'
+import Meta from '../components/meta/Meta'
 
 // eslint-disable-next-line react/function-component-definition
 const PaymentPage = () => {
@@ -30,6 +31,7 @@ const PaymentPage = () => {
 
     return (
         <div className="section-payment">
+            <Meta title="Betalning" />
             <div className="center">
                 <CheckoutSteps step1 step2 step3 />
                 <h2>Betalningsmetod</h2>

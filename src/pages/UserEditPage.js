@@ -12,6 +12,7 @@ import Loader from '../components/loader/Loader'
 import { getUserDetails, updateUser } from '../actions/userAction'
 import { USER_UPDATE_RESET } from '../constans/userConstans'
 import './userEditPage.css'
+import Meta from '../components/meta/Meta'
 
 // eslint-disable-next-line react/function-component-definition
 const UserEditPage = () => {
@@ -50,6 +51,7 @@ const UserEditPage = () => {
 
     return (
         <div className="section-user-edit">
+            <Meta title="Admin | Användare" />
             <div className="mb-5 ms-5">
                 <Link to="/admin/userlist" className="link-black text-center">
                     <BsArrowLeft className="icon-back" />

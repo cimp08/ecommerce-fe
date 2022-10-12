@@ -88,7 +88,7 @@ const ProductDetails = () => {
                                         text={`${product.numReviews} recensioner`}
                                     />
                                 </div>
-                                <h3 className="name">Glasskydd 9HD- {product.name}</h3>
+                                <h3 className="name">Glasskydd- {product.name}</h3>
                                 {product.countInStock > 0 && (
                                     <Form.Select
                                         className="stock-option"
@@ -136,7 +136,7 @@ const ProductDetails = () => {
                             <Col md={6}>
                                 <h3 className="my-5">Recensioner</h3>
                                 {product.reviews.length === 0 && (
-                                    <Message>Inga recensioner</Message>
+                                    <Message variant="dark">Inga recensioner.</Message>
                                 )}
                                 <ListGroup variant="flush">
                                     {product.reviews.map((review) => (

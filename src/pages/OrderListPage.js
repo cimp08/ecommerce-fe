@@ -11,6 +11,7 @@ import Message from '../components/message/Message'
 import Loader from '../components/loader/Loader'
 import { listOrders } from '../actions/orderActions'
 import './orderListPage.css'
+import Meta from '../components/meta/Meta'
 
 // eslint-disable-next-line react/function-component-definition
 const OrderListPage = () => {
@@ -33,6 +34,7 @@ const OrderListPage = () => {
 
     return (
         <div className="section-orderlist">
+            <Meta title="Admin | Ordrar" />
             <div className="orderlist">
                 <h2 className="mb-5">Ordrar</h2>
                 {loading ? <Loader /> : null}

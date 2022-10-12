@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Row, Col, ListGroup, Image, Form, Button, Card } from 'react-bootstrap'
 import Message from '../components/message/Message'
 import { addToCart, removeFromCart } from '../actions/cartActions'
+import Meta from '../components/meta/Meta'
 import './cartPage.css'
 
 // eslint-disable-next-line react/function-component-definition
@@ -40,6 +41,7 @@ const CartPage = () => {
 
     return (
         <div className="section-cart">
+            <Meta title="Kundvagn" />
             <div className="cart-container">
                 <Row>
                     <Col md={8}>

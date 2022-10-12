@@ -9,6 +9,7 @@ import Loader from '../components/loader/Loader'
 import { createUser } from '../actions/userAction'
 import './userCreatePage.css'
 import { USER_CREATE_RESET } from '../constans/userConstans'
+import Meta from '../components/meta/Meta'
 
 // eslint-disable-next-line react/function-component-definition
 const UserCreatePage = () => {
@@ -43,6 +44,7 @@ const UserCreatePage = () => {
 
     return (
         <div className="section-user-create">
+            <Meta title="Admin | Användare" />
             <div className="mb-5 ms-5">
                 <Link to="/admin/userlist" className="link-black text-center">
                     <BsArrowLeft className="icon-back" />

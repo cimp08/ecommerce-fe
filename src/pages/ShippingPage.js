@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import { saveShippingAddress } from '../actions/cartActions'
 import CheckoutSteps from '../components/checkoutSteps/CheckoutSteps'
+import Meta from '../components/meta/Meta'
 import './shippingPage.css'
 
 // eslint-disable-next-line react/function-component-definition
@@ -28,6 +29,7 @@ const ShippingPage = () => {
 
     return (
         <div className="section-shipping">
+            <Meta title="Leverans" />
             <div className="center">
                 <CheckoutSteps step1 step2 />
                 <h2>Leverans</h2>

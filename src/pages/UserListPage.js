@@ -12,6 +12,7 @@ import Message from '../components/message/Message'
 import Loader from '../components/loader/Loader'
 import { listUsers, deleteUser } from '../actions/userAction'
 import './userListPage.css'
+import Meta from '../components/meta/Meta'
 
 // eslint-disable-next-line react/function-component-definition
 const UserListPage = () => {
@@ -44,6 +45,7 @@ const UserListPage = () => {
 
     return (
         <div className="section-userlist">
+            <Meta title="Admin | Användare" />
             <div className="userlist">
                 <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap">
                     <h2>Användare</h2>

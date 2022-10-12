@@ -16,6 +16,7 @@ import { getUserDetails, updateUserProfile } from '../actions/userAction'
 import { listMyOrders } from '../actions/orderActions'
 import './profilePage.css'
 import { USER_UPDATE_PROFILE_RESET } from '../constans/userConstans'
+import Meta from '../components/meta/Meta'
 
 // eslint-disable-next-line react/function-component-definition
 const ProfilePage = () => {
@@ -66,6 +67,7 @@ const ProfilePage = () => {
 
     return (
         <div className="section-profile d-flex justify-content-around flex-wrap">
+            <Meta title="Min Profil" />
             <div className="center">
                 <h2>Min Profil</h2>
                 {message && <Message variant="danger">{message}</Message>}

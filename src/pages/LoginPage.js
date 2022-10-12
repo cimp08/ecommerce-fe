@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import Message from '../components/message/Message'
 import Loader from '../components/loader/Loader'
 import { login } from '../actions/userAction'
+import Meta from '../components/meta/Meta'
 import './loginPage.css'
 
 // eslint-disable-next-line react/function-component-definition
@@ -34,6 +35,7 @@ const LoginPage = () => {
 
     return (
         <div className="section-login">
+            <Meta title="Logga in" />
             <div className="center">
                 <h2>Hej! Logga in</h2>
                 {error && <Message variant="danger">{error}</Message>}

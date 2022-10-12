@@ -14,6 +14,7 @@ import Loader from '../components/loader/Loader'
 import { getOrderDetails, payOrder, deliverOrder } from '../actions/orderActions'
 import { ORDER_PAY_RESET, ORDER_DELIVER_RESET } from '../constans/orderConstans'
 import './orderPage.css'
+import Meta from '../components/meta/Meta'
 
 // eslint-disable-next-line react/function-component-definition
 const OrderPage = () => {
@@ -90,6 +91,7 @@ const OrderPage = () => {
         <Message variant="danger">{error}</Message>
     ) : (
         <div className="section-order">
+            <Meta title="Beställning" />
             <div className="order-container">
                 <h2 className="mb-5">
                     Beställning <span>({order._id})</span>

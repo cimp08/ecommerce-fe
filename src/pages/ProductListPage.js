@@ -15,6 +15,7 @@ import Paginate from '../components/paginate/Paginate'
 import { listProducts, deleteProduct, createProduct } from '../actions/productActions'
 import { PRODUCT_CREATE_RESET } from '../constans/productConstans'
 import './productListPage.css'
+import Meta from '../components/meta/Meta'
 
 // eslint-disable-next-line react/function-component-definition
 const ProductListPage = () => {
@@ -67,6 +68,7 @@ const ProductListPage = () => {
 
     return (
         <div className="section-productlist">
+            <Meta title="Admin | Produkter" />
             <div className="productlist">
                 <div className="d-flex justify-content-between align-items-center mb-4 flex-wrap">
                     <h2>Produkter</h2>
