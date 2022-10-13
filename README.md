@@ -65,7 +65,6 @@ The goal of this assignment was to create a e-commerce that uses the knowledge a
 ### Deployment
 
 Backend is deployed with Render’s free plan that automatically spun down after 15 minutes of inactivity. When a new request for a free service comes in, Render spins it up again so it can process the request.
-
 This can cause a response delay of up to 30 seconds for the first request that comes in after a period of inactivity.
 
 ### Naming Conventions
@@ -111,22 +110,23 @@ As per requirements using [provided guide](https://vicvijayakumar.com/blog/eslin
 
 <!-- Add some user stories -->
 ### Non-functional requirements
-* The application must provide a RESTful API
-* The application must work in all modern browsers
-* The application must be responsive
+* The application must provide a RESTful API.
+* The application must work in all modern browsers.
+* The application must be responsive.
 
 ### Functional requirements
-* A user must be able to register an account
-* A user must be able to login to their account
-* A user must be able to search in the application
-* An administrative user must be able to log in to a basic dashboard and create/update/delete users
+* A user must be able to register an account.
+* A user must be able to login to their account.
+* A user must be able to search in the application.
+* An administrative user must be able to log in to a basic dashboard and create/update/delete users.
 
-### Bonus requirements
-* An administrative user should be able to set permissions based on user roles
-* An administrative user should be able to create/read/update/delete user roles
-* An administrative user should be able to send out emails from the admin dashboard
+### Bonus requirements implemented in this project
+* A administrative user can log in to a basic dashboard and /create/read/update/delete products.
+* A administrative user can log in to a basic dashboard and read/set to delivered/ orders.
+* A register user can create/read and pay an order with PayPal Sandbox.
+* A register user can create reviews on products.
 
-<!-- ROADMAP -->
+<!-- SITEMAP -->
 
 ## Sitemap
 
@@ -136,7 +136,7 @@ As per requirements using [provided guide](https://vicvijayakumar.com/blog/eslin
 
 ## Roadmap
 
-Fill in later ...
+GitHub Projects (Classic): [Sprint 1-6](https://github.com/cimp08/ecommerce-fe/projects?query=is%3Aclosed&type=classic)
 
 <!-- LICENSE -->
 
@@ -151,3 +151,5 @@ Distributed under the MIT License.
 Email - cemilulay@gmail.com
 
 LinkedIn: [Cemil Ülay](www.linkedin.com/in/cemilulay)
+
+Portfolio: [Cemil Portfolio](https://cemil.netlify.app/)
