@@ -31,7 +31,11 @@ const ProductDetails = () => {
     const { userInfo } = userLogin
 
     const productReviewCreate = useSelector((state) => state.productReviewCreate)
-    const { success: successProductReview, error: errorProductReview } = productReviewCreate
+    const {
+        success: successProductReview,
+        loading: loadingProductReview,
+        error: errorProductReview,
+    } = productReviewCreate
 
     // Get the id from the url
     const { id } = useParams()
@@ -39,14 +43,14 @@ const ProductDetails = () => {
 
     useEffect(() => {
         if (successProductReview) {
-            // eslint-disable-next-line no-alert, no-undef
-            alert('Din recension är lämnad')
             setRating(0)
             setComment('')
+        }
+        if (!product._id || product._id !== id) {
+            dispatch(listProductDetails(id))
             dispatch({ type: PRODUCT_CREATE_REVIEW_RESET })
         }
-        dispatch(listProductDetails(id))
-    }, [dispatch, id, successProductReview])
+    }, [dispatch, id, product._id, successProductReview])
 
     const addToCartHandler = () => {
         navigate(`/cart/${id}?qty=${qty}`)
@@ -151,6 +155,12 @@ const ProductDetails = () => {
                                     ))}
                                     <ListGroup.Item>
                                         <h3 className="my-5">Skriv en recension</h3>
+                                        {successProductReview && (
+                                            <Message variant="success">
+                                                Review submitted successfully
+                                            </Message>
+                                        )}
+                                        {loadingProductReview && <Loader />}
                                         {errorProductReview && (
                                             <Message variant="danger">{errorProductReview}</Message>
                                         )}
@@ -184,6 +194,7 @@ const ProductDetails = () => {
                                                         required
                                                     />
                                                     <button
+                                                        disabled={loadingProductReview}
                                                         type="submit"
                                                         className="btn-black my-4"
                                                     >
