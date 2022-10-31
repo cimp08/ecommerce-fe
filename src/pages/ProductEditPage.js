@@ -113,13 +113,12 @@ const ProductEditPage = () => {
                 <h2>Uppdatera Produkt</h2>
                 {loadingUpdate && <Loader />}
                 {errorUpdate && <Message variant="danger">{errorUpdate}</Message>}
-                {loading ? (
-                    <Loader />
-                ) : error ? (
+                {loading && <Loader />}
+                {error ? (
                     <Message variant="danger">{error}</Message>
                 ) : (
                     <form onSubmit={submitHandler}>
-                        <div className="txt_field" controlId="name">
+                        <div className="txt_field">
                             <input
                                 id="name"
                                 type="name"
@@ -130,7 +129,7 @@ const ProductEditPage = () => {
                             <span></span>
                             <label>Modell</label>
                         </div>
-                        <div className="txt_field" controlId="price">
+                        <div className="txt_field">
                             <input
                                 id="price"
                                 type="number"
@@ -141,7 +140,7 @@ const ProductEditPage = () => {
                             <span></span>
                             <label>Pris (sek)</label>
                         </div>
-                        <div className="txt_field" controlId="image">
+                        <div className="txt_field">
                             <input
                                 id="image"
                                 type="text"
@@ -162,7 +161,7 @@ const ProductEditPage = () => {
                             <span></span>
                             <label>Bild</label>
                         </div>
-                        <div className="txt_field" controlId="brand">
+                        <div className="txt_field">
                             <input
                                 id="brand"
                                 type="text"
@@ -173,7 +172,7 @@ const ProductEditPage = () => {
                             <span></span>
                             <label>Märke</label>
                         </div>
-                        <div className="txt_field" controlId="countInStock">
+                        <div className="txt_field">
                             <input
                                 id="countInStock"
                                 type="number"
@@ -184,7 +183,7 @@ const ProductEditPage = () => {
                             <span></span>
                             <label>Antal i lager</label>
                         </div>
-                        <div className="txt_field" controlId="category">
+                        <div className="txt_field">
                             <input
                                 id="category"
                                 type="text"
@@ -195,7 +194,7 @@ const ProductEditPage = () => {
                             <span></span>
                             <label>Kategori</label>
                         </div>
-                        <div className="txt_field" controlId="description">
+                        <div className="txt_field">
                             <input
                                 id="description"
                                 type="text"

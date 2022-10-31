@@ -34,7 +34,7 @@ const ShippingPage = () => {
                 <CheckoutSteps step1 step2 />
                 <h2>Leverans</h2>
                 <form onSubmit={submitHandler}>
-                    <div className="txt_field" controlId="address">
+                    <div className="txt_field">
                         <input
                             id="address"
                             type="text"
@@ -45,7 +45,7 @@ const ShippingPage = () => {
                         <span></span>
                         <label>Adress</label>
                     </div>
-                    <div className="txt_field" controlId="postalCode">
+                    <div className="txt_field">
                         <input
                             id="postalCode"
                             type="text"
@@ -56,7 +56,7 @@ const ShippingPage = () => {
                         <span></span>
                         <label>Postnummer</label>
                     </div>
-                    <div className="txt_field" controlId="city">
+                    <div className="txt_field">
                         <input
                             id="city"
                             type="text"
@@ -67,7 +67,7 @@ const ShippingPage = () => {
                         <span></span>
                         <label>Stad</label>
                     </div>
-                    <div className="txt_field" controlId="country">
+                    <div className="txt_field">
                         <input
                             id="country"
                             type="text"

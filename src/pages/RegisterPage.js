@@ -49,7 +49,7 @@ const RegisterPage = () => {
                 {error && <Message variant="danger">{error}</Message>}
                 {loading && <Loader />}
                 <form onSubmit={submitHandler}>
-                    <div className="txt_field" controlId="name">
+                    <div className="txt_field">
                         <input
                             id="name"
                             type="name"
@@ -60,7 +60,7 @@ const RegisterPage = () => {
                         <span></span>
                         <label>Namn</label>
                     </div>
-                    <div className="txt_field" controlId="email">
+                    <div className="txt_field">
                         <input
                             id="email"
                             type="email"
@@ -71,7 +71,7 @@ const RegisterPage = () => {
                         <span></span>
                         <label>E-post</label>
                     </div>
-                    <div className="txt_field" controlId="password">
+                    <div className="txt_field">
                         <input
                             id="password"
                             type="password"
@@ -82,7 +82,7 @@ const RegisterPage = () => {
                         <span></span>
                         <label>Lösenord</label>
                     </div>
-                    <div className="txt_field" controlId="confirmPassword">
+                    <div className="txt_field">
                         <input
                             id="confirmPassword"
                             type="password"

@@ -68,7 +68,7 @@ const UserEditPage = () => {
                     <Message variant="danger">{error}</Message>
                 ) : (
                     <form onSubmit={submitHandler}>
-                        <div className="txt_field" controlId="name">
+                        <div className="txt_field">
                             <input
                                 id="name"
                                 type="name"
@@ -79,7 +79,7 @@ const UserEditPage = () => {
                             <span></span>
                             <label>Namn</label>
                         </div>
-                        <div className="txt_field" controlId="email">
+                        <div className="txt_field">
                             <input
                                 id="email"
                                 type="email"
@@ -90,7 +90,7 @@ const UserEditPage = () => {
                             <span></span>
                             <label>E-post</label>
                         </div>
-                        <div controlId="isAdmin">
+                        <div>
                             <input
                                 type="checkbox"
                                 checked={isAdmin}
