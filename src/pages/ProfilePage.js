@@ -38,7 +38,6 @@ const ProfilePage = () => {
     const { success } = userUpdateProfile
 
     const orderMyList = useSelector((state) => state.orderMyList)
-    // eslint-disable-next-line no-unused-vars
     const { loading: loadingOrders, error: errorOrders, orders } = orderMyList
 
     useEffect(() => {
@@ -50,8 +49,8 @@ const ProfilePage = () => {
                 dispatch(getUserDetails('profile'))
                 dispatch(listMyOrders())
             } else {
-                setName(user.name)
-                setEmail(user.email)
+                setName(userInfo.name)
+                setEmail(userInfo.email)
             }
         }
     }, [dispatch, navigate, userInfo, user, success])
