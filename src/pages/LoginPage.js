@@ -41,7 +41,7 @@ const LoginPage = () => {
                 {error && <Message variant="danger">{error}</Message>}
                 {loading && <Loader />}
                 <form onSubmit={submitHandler}>
-                    <div className="txt_field" controlId="email">
+                    <div className="txt_field">
                         <input
                             id="email"
                             type="email"
@@ -52,7 +52,7 @@ const LoginPage = () => {
                         <span></span>
                         <label>E-post</label>
                     </div>
-                    <div className="txt_field" controlId="password">
+                    <div className="txt_field">
                         <input
                             id="password"
                             type="password"
